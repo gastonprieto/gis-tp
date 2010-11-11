@@ -35,7 +35,7 @@ namespace GoogleGeocoder
             string[] geocodeInfo = client.DownloadString(uri).Split(',');
             Debug.WriteLine("Point[addres=" + address + "; latitude=" + geocodeInfo[2] + "; longitude=" + geocodeInfo[3] + "]");
 
-            return new Coordenada(Convert.ToDouble(geocodeInfo[2]), Convert.ToDouble(geocodeInfo[3]));
+            return new Coordenada(address, Convert.ToDouble(geocodeInfo[2]), Convert.ToDouble(geocodeInfo[3]));
         }
 
     }

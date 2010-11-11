@@ -80,6 +80,32 @@ namespace GIS
             get { return getDistanciaMedrano(); }
         }
 
+        public double DistanciaA(Coordenada coordenada) {
+            return Geocode.GetCoordinates(Direccion).Distance(coordenada);
+        }
+
+        public Coordenada sedeMasCercana() {
+            if (DistanceCampus < DistanceMedrano)
+            {
+                return campus;
+            }
+            else {
+                return medrano;
+            }
+        }
+
+        public Coordenada sedeMasLejana()
+        {
+            if (DistanceCampus > DistanceMedrano)
+            {
+                return campus;
+            }
+            else
+            {
+                return medrano;
+            }
+        }
+
         private double getDistanciaMedrano()
         {
             if (! _distanciaMedrano.HasValue) {
@@ -100,5 +126,6 @@ namespace GIS
             }
             return _distanciaCampus.Value;
         }
+
     }
 }

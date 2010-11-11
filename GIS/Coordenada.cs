@@ -8,16 +8,18 @@ namespace GIS
 {
     public class Coordenada : CoordenadaEspacial
     {
-        public Coordenada(double latitude, double longitude)
+        public Coordenada(String address, double latitude, double longitude)
         {
             Latitude = latitude;
             Longitude = longitude;
+            Address = address;
         }
 
         #region ISpatialCoordinate Members
 
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public String Address { get; set; }
 
         public double Distance(Coordenada otherCoordenate)
         {

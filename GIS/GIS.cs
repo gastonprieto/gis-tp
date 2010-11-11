@@ -53,8 +53,45 @@ namespace GIS
             
             dtgAlumnos.DataSource = null;
             dtgAlumnos.DataSource = alumnos;
+
+            updateStadistics(alumnos);
+
             resetAlumno();
         }
 
+        private void updateStadistics(List<Alumno> alumnos)
+        {
+            Alumno masCercano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasCercano(alumnoLejano, alumno));
+            Alumno masLejano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasLejano(alumnoLejano, alumno));
+
+            txtDistanciaMinima.Text = masCercano.DistanciaA(masCercano.sedeMasCercana()).ToString();
+            txtDistanciaMaxima.Text = masLejano.DistanciaA(masLejano.sedeMasLejana()).ToString();
+        }
+
+        private Alumno alumnoMasLejano(Alumno alumnoLejano, Alumno alumno)
+        {
+            if (alumnoLejano.DistanciaA(alumnoLejano.sedeMasLejana()) > alumno.DistanciaA(alumno.sedeMasLejana()))
+            {
+                return alumnoLejano;
+            }
+            else 
+            {
+                return alumno;
+            }
+        }
+
+        private Alumno alumnoMasCercano(Alumno alumnoCercano, Alumno alumno)
+        {
+            if (alumnoCercano.DistanciaA(alumnoCercano.sedeMasCercana()) < alumno.DistanciaA(alumno.sedeMasCercana()))
+            {
+                return alumnoCercano;
+            }
+            else
+            {
+                return alumno;
+            }
+        }
+
+        
     }
 }
