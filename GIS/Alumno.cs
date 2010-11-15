@@ -9,91 +9,80 @@ namespace GIS
 {
     class Alumno
     {
+        #region Internal State
+        protected static Coordenada medrano = new Coordenada("UTN FRBA - Medrano", "Av Medrano 951, Ciudad Autónoma de Buenos Aires, Capital Federal");
+        protected static Coordenada campus = new Coordenada("UTN FRBA - Campus", "Mozart 3200, Ciudad Autónoma de Buenos Aires, Capital Federal");
 
-        protected static Coordenada medrano = Geocode.GetCoordinates("Av Medrano 951, Ciudad Autónoma de Buenos Aires, Capital Federal");
-        protected static Coordenada campus = Geocode.GetCoordinates("Mozart 3200, Ciudad Autónoma de Buenos Aires, Capital Federal");
-
-        private String _apellido;
-        private String _nombre;
-        private String _direccion;
-        private double? _latitude;
-        private double? _longitude;
-        private double? _distanciaMedrano;
-        private double? _distanciaCampus;
-
-        public Alumno(string nombre, string apellido, string direccion)
+        protected Double? _distanciaMedrano;
+        protected Double? _distanciaCampus;
+        #endregion
+        #region Constructors
+        public Alumno(string nombre, string apellido, String direccion)
         {
             this.Nombre = nombre;
             this.Apellido = apellido;
-            this.Direccion = direccion;
+            this.Direccion = new Coordenada(direccion);
         }
-
-        public String Nombre
+        #endregion
+        #region Properties
+        public String Nombre {get; set;}
+        public String Apellido { get; set; }
+        public Coordenada Direccion { get; set; }
+        public Double Latitude 
         {
-            get { return _nombre; }
-            set { _nombre = value; }
+            get { return Direccion.Latitude.Value; }
         }
-        
-        public String Apellido
+        public Double Longitude
         {
-            get { return _apellido; }
-            set { _apellido = value; }
+            get { return Direccion.Longitude.Value; }
         }
-        
-        public String Direccion
+        public String Ubicacion 
         {
-            get { return _direccion; }
-            set { _direccion = value; }
+            get { return Direccion.Address; }
         }
-
-        public double Latitude {
-            get { return getLatitude(); }
-        }
-
-        private double getLatitude()
-        {
-            if (!_latitude.HasValue)
-            {
-                _latitude = Geocode.GetCoordinates(this.Direccion).Latitude;
-            }
-            return _latitude.Value;
-        }
-
-        public double Longitude
-        {
-            get { return getLongitude(); }
-        }
-
-        private double getLongitude()
-        {
-            if (!_longitude.HasValue) {
-                _longitude = Geocode.GetCoordinates(this.Direccion).Longitude;
-            }
-            return _longitude.Value;
-        }
-
         public String NombreCompleto {
             get { return this.Apellido + ", " + this.Nombre; }
         }
-
-        public double DistanceMedrano {
+        public double DistanceMedrano
+        {
             get { return getDistanciaMedrano(); }
         }
-
-        public double DistanciaA(Coordenada coordenada) {
-            return Geocode.GetCoordinates(Direccion).Distance(coordenada);
+        public double DistanceCampus
+        {
+            get { return getDistanciaCampus(); }
         }
-
-        public Coordenada sedeMasCercana() {
+        #endregion
+        #region Bussiness Method
+        public double DistanciaA(Coordenada coordenada)
+        {
+            return Direccion.Distance(coordenada);
+        }
+        private double getDistanciaCampus()
+        {
+            if (! _distanciaCampus.HasValue) {
+                _distanciaCampus = Direccion.Distance(campus);
+            }
+            return _distanciaCampus.Value;
+        }
+        private double getDistanciaMedrano()
+        {
+            if (!_distanciaMedrano.HasValue)
+            {
+                _distanciaMedrano = Direccion.Distance(medrano);
+            }
+            return _distanciaMedrano.Value;
+        }
+        public Coordenada sedeMasCercana()
+        {
             if (DistanceCampus < DistanceMedrano)
             {
                 return campus;
             }
-            else {
+            else
+            {
                 return medrano;
             }
         }
-
         public Coordenada sedeMasLejana()
         {
             if (DistanceCampus > DistanceMedrano)
@@ -105,27 +94,6 @@ namespace GIS
                 return medrano;
             }
         }
-
-        private double getDistanciaMedrano()
-        {
-            if (! _distanciaMedrano.HasValue) {
-                _distanciaMedrano = Geocode.GetCoordinates(this.Direccion).Distance(medrano);
-            }
-            return _distanciaMedrano.Value;
-        }
-
-        public double DistanceCampus
-        {
-            get { return getDistanciaCampus(); }
-        }
-
-        private double getDistanciaCampus()
-        {
-            if (! _distanciaCampus.HasValue) {
-                _distanciaCampus = Geocode.GetCoordinates(this.Direccion).Distance(campus);
-            }
-            return _distanciaCampus.Value;
-        }
-
+        #endregion
     }
 }

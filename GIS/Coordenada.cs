@@ -6,46 +6,76 @@ using GoogleGeocoder;
 
 namespace GIS
 {
-    public class Coordenada : CoordenadaEspacial
+    public class Coordenada
     {
-        public Coordenada(String address, double latitude, double longitude)
+        public Coordenada(String name, String address)
         {
-            Latitude = latitude;
-            Longitude = longitude;
+            Name = name;
             Address = address;
         }
 
-        #region ISpatialCoordinate Members
+        public Coordenada(string direccion)
+        {
+            Name = direccion;
+            Address = direccion;
+        }
 
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        protected double? _latitude;
+        protected double? _longitude;
+
+        public String Name { get; set; }
+        public double? Latitude { get { return getLatitude(); } }
+        public double? Longitude { get { return getLongitude(); } }
         public String Address { get; set; }
 
         public double Distance(Coordenada otherCoordenate)
         {
-            double theta = Longitude - otherCoordenate.Longitude;
-            double dist = Math.Sin(DegreeToRadian(Latitude))
-                    * Math.Sin(DegreeToRadian(otherCoordenate.Latitude))
-                    + Math.Cos(DegreeToRadian(Latitude))
-                    * Math.Cos(DegreeToRadian(otherCoordenate.Latitude)) * Math.Cos(DegreeToRadian(theta));
-            dist = Math.Acos(dist);
-            dist = DegreeToRadian(dist);
-            dist = dist * 60 * 1.1515;
-            dist = dist * 1.609344;
-            
-            return dist;
+            double earthRadius = 3958.75;
+            double dLat = ToRadian(otherCoordenate.Latitude - Latitude);
+            double dLng = ToRadian(otherCoordenate.Longitude - Longitude);
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                       Math.Cos(ToRadian(Latitude)) * Math.Cos(ToRadian(otherCoordenate.Latitude)) *
+                       Math.Sin(dLng / 2) * Math.Sin(dLng / 2);
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            double dist = earthRadius * c;
+
+            int meterConversion = 1609;
+
+            return dist * meterConversion;
         }
 
+        private double? getLongitude()
+        {
+            if (!_longitude.HasValue) {
+                initializeLatitudeAndLongitude();
+            }
+            return _longitude;
+        }
+
+        private double? getLatitude()
+        {
+            if (!_latitude.HasValue) {
+                initializeLatitudeAndLongitude();
+            }
+            return _latitude;
+        }
+
+        private void initializeLatitudeAndLongitude()
+        {
+            String[] geoCodeInfo = Geocode.geoCodeInfo(Address);
+            _latitude = Convert.ToDouble(geoCodeInfo[2]);
+            _longitude = Convert.ToDouble(geoCodeInfo[3]);
+        }
         
-        protected double DegreeToRadian(double angle)
+        protected double ToRadian(double? angle)
         {
-            return Math.PI * angle / 180.0;
+            return Math.PI * angle.Value / 180.0;
         }
 
-        protected double RadianToDegree(double angle)
+        protected double ToDegree(double? angle)
         {
-            return angle * (180.0 / Math.PI);
+            return angle.Value * (180.0 / Math.PI);
         }
-        #endregion
+
     }
 }

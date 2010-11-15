@@ -55,6 +55,7 @@
             this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DistanceCampus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DistanceMedrano = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mnuCtxGrid = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -373,6 +374,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ubicacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistanceCampus;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistanceMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu mnuCtxGrid;
 
     }
 }
