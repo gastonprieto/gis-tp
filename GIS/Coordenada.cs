@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GoogleGeocoder;
+using System.Globalization;
 
 namespace GIS
 {
@@ -30,18 +31,14 @@ namespace GIS
 
         public double Distance(Coordenada otherCoordenate)
         {
-            double earthRadius = 3958.75;
-            double dLat = ToRadian(otherCoordenate.Latitude - Latitude);
-            double dLng = ToRadian(otherCoordenate.Longitude - Longitude);
-            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+            double earthRadius = 6371;
+            double deltaLatitude = ToRadian(otherCoordenate.Latitude - Latitude);
+            double deltaLongitude = ToRadian(otherCoordenate.Longitude - Longitude);
+            double a = Math.Sin(deltaLatitude / 2) * Math.Sin(deltaLatitude / 2) +
                        Math.Cos(ToRadian(Latitude)) * Math.Cos(ToRadian(otherCoordenate.Latitude)) *
-                       Math.Sin(dLng / 2) * Math.Sin(dLng / 2);
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            double dist = earthRadius * c;
-
-            int meterConversion = 1609;
-
-            return dist * meterConversion;
+                       Math.Sin(deltaLongitude / 2) * Math.Sin(deltaLongitude / 2);
+            double distanceAngular = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return earthRadius * distanceAngular;
         }
 
         private double? getLongitude()
@@ -63,8 +60,8 @@ namespace GIS
         private void initializeLatitudeAndLongitude()
         {
             String[] geoCodeInfo = Geocode.geoCodeInfo(Address);
-            _latitude = Convert.ToDouble(geoCodeInfo[2]);
-            _longitude = Convert.ToDouble(geoCodeInfo[3]);
+            _latitude = Convert.ToDouble(geoCodeInfo[2], new CultureInfo("en-US"));
+            _longitude = Convert.ToDouble(geoCodeInfo[3], new CultureInfo("en-US"));
         }
         
         protected double ToRadian(double? angle)
