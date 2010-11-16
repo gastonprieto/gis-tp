@@ -25,8 +25,8 @@ namespace GIS
         protected double? _longitude;
 
         public String Name { get; set; }
-        public double? Latitude { get { return getLatitude(); } }
-        public double? Longitude { get { return getLongitude(); } }
+        public double? Latitude { get { return getLatitude(); } set { _latitude = value; } }
+        public double? Longitude { get { return getLongitude(); } set { _longitude = value; } }
         public String Address { get; set; }
 
         public double Distance(Coordenada otherCoordenate)

@@ -10,9 +10,6 @@ namespace GIS
     class Alumno
     {
         #region Internal State
-        protected static Coordenada medrano = new Coordenada("UTN FRBA - Medrano", "Av Medrano 951, Ciudad Autónoma de Buenos Aires, Capital Federal");
-        protected static Coordenada campus = new Coordenada("UTN FRBA - Campus", "Mozart 3200, Ciudad Autónoma de Buenos Aires, Capital Federal");
-
         protected Double? _distanciaMedrano;
         protected Double? _distanciaCampus;
         #endregion
@@ -60,7 +57,7 @@ namespace GIS
         private double getDistanciaCampus()
         {
             if (! _distanciaCampus.HasValue) {
-                _distanciaCampus = Direccion.Distance(campus);
+                _distanciaCampus = Direccion.Distance(Helpers.CAMPUS);
             }
             return _distanciaCampus.Value;
         }
@@ -68,7 +65,7 @@ namespace GIS
         {
             if (!_distanciaMedrano.HasValue)
             {
-                _distanciaMedrano = Direccion.Distance(medrano);
+                _distanciaMedrano = Direccion.Distance(Helpers.MEDRANO);
             }
             return _distanciaMedrano.Value;
         }
@@ -76,22 +73,22 @@ namespace GIS
         {
             if (DistanceCampus < DistanceMedrano)
             {
-                return campus;
+                return Helpers.CAMPUS;
             }
             else
             {
-                return medrano;
+                return Helpers.MEDRANO;
             }
         }
         public Coordenada sedeMasLejana()
         {
             if (DistanceCampus > DistanceMedrano)
             {
-                return campus;
+                return Helpers.CAMPUS;
             }
             else
             {
-                return medrano;
+                return Helpers.MEDRANO;
             }
         }
         #endregion

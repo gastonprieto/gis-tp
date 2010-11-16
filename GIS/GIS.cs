@@ -34,9 +34,13 @@ namespace GIS
 
         private void resetTotals()
         {
+            txtAlumnoCercano.Text = String.Empty;
+            txtAlumnoMasLejano.Text = String.Empty;
+
             txtDistanciaMaxima.Text = String.Empty;
             txtDistanciaMinima.Text = String.Empty;
             txtDistanciaPromedio.Text = String.Empty;
+
             txtSedeMax.Text = String.Empty;
             txtSedeMinima.Text = String.Empty;
             txtSedeProm.Text = String.Empty;
@@ -61,11 +65,33 @@ namespace GIS
 
         private void updateStadistics(List<Alumno> alumnos)
         {
-            Alumno masCercano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasCercano(alumnoLejano, alumno));
-            Alumno masLejano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasLejano(alumnoLejano, alumno));
+            Alumno elAlumnoMasCercano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasCercano(alumnoLejano, alumno));
+            txtAlumnoCercano.Text = elAlumnoMasCercano.NombreCompleto;
+            txtDistanciaMinima.Text = elAlumnoMasCercano.DistanciaA(elAlumnoMasCercano.sedeMasCercana()).ToString();
+            txtSedeMinima.Text = elAlumnoMasCercano.sedeMasCercana().Name;
+                        
+            Alumno elAlumnoMasLejano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasLejano(alumnoLejano, alumno));
+            txtAlumnoMasLejano.Text = elAlumnoMasLejano.NombreCompleto;
+            txtDistanciaMaxima.Text = elAlumnoMasLejano.DistanciaA(elAlumnoMasLejano.sedeMasLejana()).ToString();
+            txtSedeMax.Text = elAlumnoMasLejano.sedeMasLejana().Name;
 
-            txtDistanciaMinima.Text = masCercano.DistanciaA(masCercano.sedeMasCercana()).ToString();
-            txtDistanciaMaxima.Text = masLejano.DistanciaA(masLejano.sedeMasLejana()).ToString();
+            Double latitudeProm = alumnos.Sum<Alumno>( (Alumno alumno) => alumno.Latitude ) / alumnos.Count;
+            Double longitudeProm = alumnos.Sum<Alumno>((Alumno alumno) => alumno.Longitude) / alumnos.Count;
+            Coordenada coordenada = new Coordenada("Coordenada Promedio", "");
+            coordenada.Latitude = latitudeProm;
+            coordenada.Longitude = longitudeProm;
+            double distanciaCampus = coordenada.Distance(Helpers.CAMPUS);
+            double distanciaMedrano = coordenada.Distance(Helpers.MEDRANO);
+            if (distanciaCampus < distanciaMedrano)
+            {
+                txtDistanciaPromedio.Text = distanciaCampus.ToString();
+                txtSedeProm.Text = Helpers.CAMPUS.Name;
+            }
+            else 
+            {
+                txtDistanciaPromedio.Text = distanciaMedrano.ToString();
+                txtSedeProm.Text = Helpers.MEDRANO.Name;
+            }
         }
 
         private Alumno alumnoMasLejano(Alumno alumnoLejano, Alumno alumno)

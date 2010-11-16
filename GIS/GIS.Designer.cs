@@ -56,6 +56,12 @@
             this.DistanceCampus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DistanceMedrano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuCtxGrid = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.txtAlumnoMasLejano = new System.Windows.Forms.Label();
+            this.txtAlumnoCercano = new System.Windows.Forms.Label();
+            this.lblAlumnoLejano = new System.Windows.Forms.Label();
+            this.lblAlumnoCercano = new System.Windows.Forms.Label();
+            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +76,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(526, 34);
+            this.btnAgregar.Location = new System.Drawing.Point(785, 34);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 4;
@@ -91,27 +97,27 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(81, 6);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(176, 20);
+            this.txtNombre.Size = new System.Drawing.Size(288, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtUbicacion
             // 
             this.txtUbicacion.Location = new System.Drawing.Point(81, 36);
             this.txtUbicacion.Name = "txtUbicacion";
-            this.txtUbicacion.Size = new System.Drawing.Size(424, 20);
+            this.txtUbicacion.Size = new System.Drawing.Size(688, 20);
             this.txtUbicacion.TabIndex = 3;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(332, 6);
+            this.txtApellido.Location = new System.Drawing.Point(481, 6);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(173, 20);
+            this.txtApellido.Size = new System.Drawing.Size(288, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(279, 9);
+            this.lblApellido.Location = new System.Drawing.Point(428, 9);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 6;
@@ -123,9 +129,11 @@
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape4,
+            this.lineShape3,
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(613, 393);
+            this.shapeContainer1.Size = new System.Drawing.Size(872, 441);
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
             // 
@@ -133,7 +141,7 @@
             // 
             this.lineShape2.Name = "lineShape2";
             this.lineShape2.X1 = 10;
-            this.lineShape2.X2 = 598;
+            this.lineShape2.X2 = 854;
             this.lineShape2.Y1 = 298;
             this.lineShape2.Y2 = 298;
             // 
@@ -141,7 +149,7 @@
             // 
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 8;
-            this.lineShape1.X2 = 600;
+            this.lineShape1.X2 = 857;
             this.lineShape1.Y1 = 72;
             this.lineShape1.Y2 = 72;
             // 
@@ -149,36 +157,37 @@
             // 
             this.lblDistanciaMinima.AutoSize = true;
             this.lblDistanciaMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaMinima.Location = new System.Drawing.Point(12, 313);
+            this.lblDistanciaMinima.Location = new System.Drawing.Point(334, 316);
             this.lblDistanciaMinima.Name = "lblDistanciaMinima";
-            this.lblDistanciaMinima.Size = new System.Drawing.Size(107, 13);
+            this.lblDistanciaMinima.Size = new System.Drawing.Size(64, 13);
             this.lblDistanciaMinima.TabIndex = 10;
-            this.lblDistanciaMinima.Text = "Distancia Minima:";
+            this.lblDistanciaMinima.Text = "Distancia:";
             // 
             // lblDistanciaMaxima
             // 
             this.lblDistanciaMaxima.AutoSize = true;
             this.lblDistanciaMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaMaxima.Location = new System.Drawing.Point(12, 340);
+            this.lblDistanciaMaxima.Location = new System.Drawing.Point(334, 349);
             this.lblDistanciaMaxima.Name = "lblDistanciaMaxima";
-            this.lblDistanciaMaxima.Size = new System.Drawing.Size(110, 13);
+            this.lblDistanciaMaxima.Size = new System.Drawing.Size(64, 13);
             this.lblDistanciaMaxima.TabIndex = 11;
-            this.lblDistanciaMaxima.Text = "Distancia Máxima:";
+            this.lblDistanciaMaxima.Text = "Distancia:";
             // 
             // lblDistanciaPromedio
             // 
             this.lblDistanciaPromedio.AutoSize = true;
-            this.lblDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaPromedio.Location = new System.Drawing.Point(12, 366);
+            this.lblDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistanciaPromedio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblDistanciaPromedio.Location = new System.Drawing.Point(11, 401);
             this.lblDistanciaPromedio.Name = "lblDistanciaPromedio";
-            this.lblDistanciaPromedio.Size = new System.Drawing.Size(120, 13);
+            this.lblDistanciaPromedio.Size = new System.Drawing.Size(169, 20);
             this.lblDistanciaPromedio.TabIndex = 12;
             this.lblDistanciaPromedio.Text = "Distancia Promedio:";
             // 
             // txtDistanciaMinima
             // 
             this.txtDistanciaMinima.AutoSize = true;
-            this.txtDistanciaMinima.Location = new System.Drawing.Point(142, 313);
+            this.txtDistanciaMinima.Location = new System.Drawing.Point(404, 316);
             this.txtDistanciaMinima.Name = "txtDistanciaMinima";
             this.txtDistanciaMinima.Size = new System.Drawing.Size(71, 13);
             this.txtDistanciaMinima.TabIndex = 13;
@@ -187,7 +196,7 @@
             // txtDistanciaMaxima
             // 
             this.txtDistanciaMaxima.AutoSize = true;
-            this.txtDistanciaMaxima.Location = new System.Drawing.Point(142, 340);
+            this.txtDistanciaMaxima.Location = new System.Drawing.Point(404, 349);
             this.txtDistanciaMaxima.Name = "txtDistanciaMaxima";
             this.txtDistanciaMaxima.Size = new System.Drawing.Size(74, 13);
             this.txtDistanciaMaxima.TabIndex = 14;
@@ -196,9 +205,10 @@
             // txtDistanciaPromedio
             // 
             this.txtDistanciaPromedio.AutoSize = true;
-            this.txtDistanciaPromedio.Location = new System.Drawing.Point(142, 366);
+            this.txtDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistanciaPromedio.Location = new System.Drawing.Point(180, 401);
             this.txtDistanciaPromedio.Name = "txtDistanciaPromedio";
-            this.txtDistanciaPromedio.Size = new System.Drawing.Size(78, 13);
+            this.txtDistanciaPromedio.Size = new System.Drawing.Size(116, 20);
             this.txtDistanciaPromedio.TabIndex = 15;
             this.txtDistanciaPromedio.Text = "Distancia Prom";
             // 
@@ -206,29 +216,30 @@
             // 
             this.lblSedeMinima.AutoSize = true;
             this.lblSedeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedeMinima.Location = new System.Drawing.Point(279, 313);
+            this.lblSedeMinima.Location = new System.Drawing.Point(12, 316);
             this.lblSedeMinima.Name = "lblSedeMinima";
-            this.lblSedeMinima.Size = new System.Drawing.Size(125, 13);
+            this.lblSedeMinima.Size = new System.Drawing.Size(118, 13);
             this.lblSedeMinima.TabIndex = 16;
-            this.lblSedeMinima.Text = "Sede Recomendada:";
+            this.lblSedeMinima.Text = "Sede Más Cercana:";
             // 
             // lblSedeMaxima
             // 
             this.lblSedeMaxima.AutoSize = true;
             this.lblSedeMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedeMaxima.Location = new System.Drawing.Point(279, 340);
+            this.lblSedeMaxima.Location = new System.Drawing.Point(12, 349);
             this.lblSedeMaxima.Name = "lblSedeMaxima";
-            this.lblSedeMaxima.Size = new System.Drawing.Size(125, 13);
+            this.lblSedeMaxima.Size = new System.Drawing.Size(113, 13);
             this.lblSedeMaxima.TabIndex = 17;
-            this.lblSedeMaxima.Text = "Sede Recomendada:";
+            this.lblSedeMaxima.Text = "Sede Más Alejada:";
             // 
             // lblSedePromedio
             // 
             this.lblSedePromedio.AutoSize = true;
-            this.lblSedePromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedePromedio.Location = new System.Drawing.Point(279, 366);
+            this.lblSedePromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSedePromedio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblSedePromedio.Location = new System.Drawing.Point(415, 401);
             this.lblSedePromedio.Name = "lblSedePromedio";
-            this.lblSedePromedio.Size = new System.Drawing.Size(125, 13);
+            this.lblSedePromedio.Size = new System.Drawing.Size(177, 20);
             this.lblSedePromedio.TabIndex = 18;
             this.lblSedePromedio.Text = "Sede Recomendada:";
             this.lblSedePromedio.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -236,7 +247,7 @@
             // txtSedeMinima
             // 
             this.txtSedeMinima.AutoSize = true;
-            this.txtSedeMinima.Location = new System.Drawing.Point(420, 313);
+            this.txtSedeMinima.Location = new System.Drawing.Point(143, 316);
             this.txtSedeMinima.Name = "txtSedeMinima";
             this.txtSedeMinima.Size = new System.Drawing.Size(52, 13);
             this.txtSedeMinima.TabIndex = 19;
@@ -245,7 +256,7 @@
             // txtSedeMax
             // 
             this.txtSedeMax.AutoSize = true;
-            this.txtSedeMax.Location = new System.Drawing.Point(420, 340);
+            this.txtSedeMax.Location = new System.Drawing.Point(143, 349);
             this.txtSedeMax.Name = "txtSedeMax";
             this.txtSedeMax.Size = new System.Drawing.Size(55, 13);
             this.txtSedeMax.TabIndex = 20;
@@ -254,9 +265,10 @@
             // txtSedeProm
             // 
             this.txtSedeProm.AutoSize = true;
-            this.txtSedeProm.Location = new System.Drawing.Point(420, 366);
+            this.txtSedeProm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSedeProm.Location = new System.Drawing.Point(598, 401);
             this.txtSedeProm.Name = "txtSedeProm";
-            this.txtSedeProm.Size = new System.Drawing.Size(59, 13);
+            this.txtSedeProm.Size = new System.Drawing.Size(88, 20);
             this.txtSedeProm.TabIndex = 21;
             this.txtSedeProm.Text = "Sede Prom";
             // 
@@ -277,7 +289,7 @@
             this.dtgAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dtgAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAlumnos.ShowEditingIcon = false;
-            this.dtgAlumnos.Size = new System.Drawing.Size(591, 209);
+            this.dtgAlumnos.Size = new System.Drawing.Size(852, 209);
             this.dtgAlumnos.TabIndex = 22;
             // 
             // NombreCompleto
@@ -308,11 +320,69 @@
             this.DistanceMedrano.Name = "DistanceMedrano";
             this.DistanceMedrano.ReadOnly = true;
             // 
+            // txtAlumnoMasLejano
+            // 
+            this.txtAlumnoMasLejano.AutoSize = true;
+            this.txtAlumnoMasLejano.Location = new System.Drawing.Point(657, 349);
+            this.txtAlumnoMasLejano.Name = "txtAlumnoMasLejano";
+            this.txtAlumnoMasLejano.Size = new System.Drawing.Size(65, 13);
+            this.txtAlumnoMasLejano.TabIndex = 26;
+            this.txtAlumnoMasLejano.Text = "Alumno Max";
+            // 
+            // txtAlumnoCercano
+            // 
+            this.txtAlumnoCercano.AutoSize = true;
+            this.txtAlumnoCercano.Location = new System.Drawing.Point(657, 316);
+            this.txtAlumnoCercano.Name = "txtAlumnoCercano";
+            this.txtAlumnoCercano.Size = new System.Drawing.Size(62, 13);
+            this.txtAlumnoCercano.TabIndex = 25;
+            this.txtAlumnoCercano.Text = "Alumno Min";
+            // 
+            // lblAlumnoLejano
+            // 
+            this.lblAlumnoLejano.AutoSize = true;
+            this.lblAlumnoLejano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumnoLejano.Location = new System.Drawing.Point(599, 349);
+            this.lblAlumnoLejano.Name = "lblAlumnoLejano";
+            this.lblAlumnoLejano.Size = new System.Drawing.Size(52, 13);
+            this.lblAlumnoLejano.TabIndex = 24;
+            this.lblAlumnoLejano.Text = "Alumno:";
+            // 
+            // lblAlumnoCercano
+            // 
+            this.lblAlumnoCercano.AutoSize = true;
+            this.lblAlumnoCercano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumnoCercano.Location = new System.Drawing.Point(599, 316);
+            this.lblAlumnoCercano.Name = "lblAlumnoCercano";
+            this.lblAlumnoCercano.Size = new System.Drawing.Size(52, 13);
+            this.lblAlumnoCercano.TabIndex = 23;
+            this.lblAlumnoCercano.Text = "Alumno:";
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.X1 = 12;
+            this.lineShape3.X2 = 853;
+            this.lineShape3.Y1 = 385;
+            this.lineShape3.Y2 = 385;
+            // 
+            // lineShape4
+            // 
+            this.lineShape4.Name = "lineShape4";
+            this.lineShape4.X1 = 13;
+            this.lineShape4.X2 = 853;
+            this.lineShape4.Y1 = 381;
+            this.lineShape4.Y2 = 381;
+            // 
             // GIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 393);
+            this.ClientSize = new System.Drawing.Size(872, 441);
+            this.Controls.Add(this.txtAlumnoMasLejano);
+            this.Controls.Add(this.txtAlumnoCercano);
+            this.Controls.Add(this.lblAlumnoLejano);
+            this.Controls.Add(this.lblAlumnoCercano);
             this.Controls.Add(this.dtgAlumnos);
             this.Controls.Add(this.txtSedeProm);
             this.Controls.Add(this.txtSedeMax);
@@ -375,6 +445,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DistanceCampus;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistanceMedrano;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenu mnuCtxGrid;
+        private System.Windows.Forms.Label txtAlumnoMasLejano;
+        private System.Windows.Forms.Label txtAlumnoCercano;
+        private System.Windows.Forms.Label lblAlumnoLejano;
+        private System.Windows.Forms.Label lblAlumnoCercano;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
 
     }
 }

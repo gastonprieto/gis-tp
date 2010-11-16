@@ -7,14 +7,7 @@ namespace GIS
 {
     public static class Helpers
     {
-        public static double Sin2(double x)
-        {
-            return 0.5 - 0.5 * Math.Cos(2 * x);
-        }
-
-        public static double Diff(double a, double b)
-        {
-            return Math.Abs(b - a);
-        }
+        public static Coordenada MEDRANO = new Coordenada("UTN FRBA - Medrano", "Av Medrano 951, Ciudad Autónoma de Buenos Aires, Capital Federal");
+        public static Coordenada CAMPUS = new Coordenada("UTN FRBA - Campus", "Mozart 3200, Ciudad Autónoma de Buenos Aires, Capital Federal");
     }
 }
