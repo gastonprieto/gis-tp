@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUbicacion = new System.Windows.Forms.Label();
@@ -73,8 +73,12 @@
             this.ctxMenuExportar = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
+            this.pnlProgress = new System.Windows.Forms.Panel();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.ctxMenuAlumnos.SuspendLayout();
+            this.pnlProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -381,8 +385,8 @@
             // Latitud
             // 
             this.Latitud.DataPropertyName = "Latitude";
-            dataGridViewCellStyle13.Format = "N4";
-            this.Latitud.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Format = "N4";
+            this.Latitud.DefaultCellStyle = dataGridViewCellStyle5;
             this.Latitud.HeaderText = "Latitud";
             this.Latitud.Name = "Latitud";
             this.Latitud.ReadOnly = true;
@@ -391,8 +395,8 @@
             // Longitud
             // 
             this.Longitud.DataPropertyName = "Longitude";
-            dataGridViewCellStyle14.Format = "N4";
-            this.Longitud.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Format = "N4";
+            this.Longitud.DefaultCellStyle = dataGridViewCellStyle6;
             this.Longitud.HeaderText = "Longitud";
             this.Longitud.Name = "Longitud";
             this.Longitud.ReadOnly = true;
@@ -401,8 +405,8 @@
             // DistanceMedrano
             // 
             this.DistanceMedrano.DataPropertyName = "DistanceMedrano";
-            dataGridViewCellStyle15.Format = ".0000 Km.";
-            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Format = ".0000 Km.";
+            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle7;
             this.DistanceMedrano.HeaderText = "Distancia a Medrano";
             this.DistanceMedrano.Name = "DistanceMedrano";
             this.DistanceMedrano.ReadOnly = true;
@@ -411,8 +415,8 @@
             // DistanceCampus
             // 
             this.DistanceCampus.DataPropertyName = "DistanceCampus";
-            dataGridViewCellStyle16.Format = ".0000 Km.";
-            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Format = ".0000 Km.";
+            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle8;
             this.DistanceCampus.HeaderText = "Distancia a Campus";
             this.DistanceCampus.Name = "DistanceCampus";
             this.DistanceCampus.ReadOnly = true;
@@ -452,11 +456,39 @@
             this.dlgSave.Filter = "Archivo XML|*.xml";
             this.dlgSave.Title = "Exportar Listado Alumnos";
             // 
+            // pnlProgress
+            // 
+            this.pnlProgress.Controls.Add(this.progressBar);
+            this.pnlProgress.Controls.Add(this.lblProgress);
+            this.pnlProgress.Location = new System.Drawing.Point(274, 131);
+            this.pnlProgress.Name = "pnlProgress";
+            this.pnlProgress.Size = new System.Drawing.Size(302, 89);
+            this.pnlProgress.TabIndex = 28;
+            this.pnlProgress.Visible = false;
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(17, 17);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(73, 13);
+            this.lblProgress.TabIndex = 0;
+            this.lblProgress.Text = "Procesando...";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(20, 45);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(267, 23);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar.TabIndex = 1;
+            // 
             // GIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 441);
+            this.Controls.Add(this.pnlProgress);
             this.Controls.Add(this.dtgAlumnos);
             this.Controls.Add(this.txtAlumnoMasLejano);
             this.Controls.Add(this.txtAlumnoCercano);
@@ -489,6 +521,8 @@
             this.Load += new System.EventHandler(this.GIS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).EndInit();
             this.ctxMenuAlumnos.ResumeLayout(false);
+            this.pnlProgress.ResumeLayout(false);
+            this.pnlProgress.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,6 +570,9 @@
         private System.Windows.Forms.ContextMenuStrip ctxMenuAlumnos;
         private System.Windows.Forms.ToolStripMenuItem ctxMenuImportar;
         private System.Windows.Forms.ToolStripMenuItem ctxMenuExportar;
+        private System.Windows.Forms.Panel pnlProgress;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblProgress;
 
     }
 }
