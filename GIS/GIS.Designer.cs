@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUbicacion = new System.Windows.Forms.Label();
@@ -36,6 +41,8 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lblDistanciaMinima = new System.Windows.Forms.Label();
@@ -50,19 +57,24 @@
             this.txtSedeMinima = new System.Windows.Forms.Label();
             this.txtSedeMax = new System.Windows.Forms.Label();
             this.txtSedeProm = new System.Windows.Forms.Label();
-            this.dtgAlumnos = new System.Windows.Forms.DataGridView();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistanceCampus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistanceMedrano = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mnuCtxGrid = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.txtAlumnoMasLejano = new System.Windows.Forms.Label();
             this.txtAlumnoCercano = new System.Windows.Forms.Label();
             this.lblAlumnoLejano = new System.Windows.Forms.Label();
             this.lblAlumnoCercano = new System.Windows.Forms.Label();
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.dtgAlumnos = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Nombre = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.Direccion = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.Latitud = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.Longitud = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.DistanceMedrano = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.DistanceCampus = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.ctxMenuAlumnos = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctxMenuImportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxMenuExportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
+            this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
+            this.ctxMenuAlumnos.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -117,7 +129,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(428, 9);
+            this.lblApellido.Location = new System.Drawing.Point(416, 9);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 6;
@@ -136,6 +148,22 @@
             this.shapeContainer1.Size = new System.Drawing.Size(872, 441);
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape4
+            // 
+            this.lineShape4.Name = "lineShape4";
+            this.lineShape4.X1 = 13;
+            this.lineShape4.X2 = 853;
+            this.lineShape4.Y1 = 381;
+            this.lineShape4.Y2 = 381;
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.X1 = 12;
+            this.lineShape3.X2 = 853;
+            this.lineShape3.Y1 = 385;
+            this.lineShape3.Y2 = 385;
             // 
             // lineShape2
             // 
@@ -208,13 +236,14 @@
             this.txtDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDistanciaPromedio.Location = new System.Drawing.Point(180, 401);
             this.txtDistanciaPromedio.Name = "txtDistanciaPromedio";
-            this.txtDistanciaPromedio.Size = new System.Drawing.Size(116, 20);
+            this.txtDistanciaPromedio.Size = new System.Drawing.Size(146, 20);
             this.txtDistanciaPromedio.TabIndex = 15;
-            this.txtDistanciaPromedio.Text = "Distancia Prom";
+            this.txtDistanciaPromedio.Text = "Distancia Promedio";
             // 
             // lblSedeMinima
             // 
             this.lblSedeMinima.AutoSize = true;
+            this.lblSedeMinima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSedeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSedeMinima.Location = new System.Drawing.Point(12, 316);
             this.lblSedeMinima.Name = "lblSedeMinima";
@@ -268,57 +297,9 @@
             this.txtSedeProm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSedeProm.Location = new System.Drawing.Point(598, 401);
             this.txtSedeProm.Name = "txtSedeProm";
-            this.txtSedeProm.Size = new System.Drawing.Size(88, 20);
+            this.txtSedeProm.Size = new System.Drawing.Size(118, 20);
             this.txtSedeProm.TabIndex = 21;
-            this.txtSedeProm.Text = "Sede Prom";
-            // 
-            // dtgAlumnos
-            // 
-            this.dtgAlumnos.AllowUserToAddRows = false;
-            this.dtgAlumnos.AllowUserToDeleteRows = false;
-            this.dtgAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NombreCompleto,
-            this.Ubicacion,
-            this.DistanceCampus,
-            this.DistanceMedrano});
-            this.dtgAlumnos.Location = new System.Drawing.Point(8, 81);
-            this.dtgAlumnos.MultiSelect = false;
-            this.dtgAlumnos.Name = "dtgAlumnos";
-            this.dtgAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dtgAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgAlumnos.ShowEditingIcon = false;
-            this.dtgAlumnos.Size = new System.Drawing.Size(852, 209);
-            this.dtgAlumnos.TabIndex = 22;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.DataPropertyName = "NombreCompleto";
-            this.NombreCompleto.HeaderText = "Apellido, Nombre";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            // 
-            // Ubicacion
-            // 
-            this.Ubicacion.DataPropertyName = "Ubicacion";
-            this.Ubicacion.HeaderText = "Ubicación";
-            this.Ubicacion.Name = "Ubicacion";
-            this.Ubicacion.ReadOnly = true;
-            // 
-            // DistanceCampus
-            // 
-            this.DistanceCampus.DataPropertyName = "DistanceCampus";
-            this.DistanceCampus.HeaderText = "Distancia a Campus";
-            this.DistanceCampus.Name = "DistanceCampus";
-            this.DistanceCampus.ReadOnly = true;
-            // 
-            // DistanceMedrano
-            // 
-            this.DistanceMedrano.DataPropertyName = "DistanceMedrano";
-            this.DistanceMedrano.HeaderText = "Distancia a Medrano";
-            this.DistanceMedrano.Name = "DistanceMedrano";
-            this.DistanceMedrano.ReadOnly = true;
+            this.txtSedeProm.Text = "Sede Promedio";
             // 
             // txtAlumnoMasLejano
             // 
@@ -358,32 +339,129 @@
             this.lblAlumnoCercano.TabIndex = 23;
             this.lblAlumnoCercano.Text = "Alumno:";
             // 
-            // lineShape3
+            // dtgAlumnos
             // 
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 12;
-            this.lineShape3.X2 = 853;
-            this.lineShape3.Y1 = 385;
-            this.lineShape3.Y2 = 385;
+            this.dtgAlumnos.AllowUserToAddRows = false;
+            this.dtgAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Direccion,
+            this.Latitud,
+            this.Longitud,
+            this.DistanceMedrano,
+            this.DistanceCampus});
+            this.dtgAlumnos.ContextMenuStrip = this.ctxMenuAlumnos;
+            this.dtgAlumnos.Location = new System.Drawing.Point(15, 81);
+            this.dtgAlumnos.MultiSelect = false;
+            this.dtgAlumnos.Name = "dtgAlumnos";
+            this.dtgAlumnos.ReadOnly = true;
+            this.dtgAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAlumnos.Size = new System.Drawing.Size(840, 209);
+            this.dtgAlumnos.TabIndex = 27;
+            this.dtgAlumnos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtgAlumnos_RowsRemoved);
             // 
-            // lineShape4
+            // Nombre
             // 
-            this.lineShape4.Name = "lineShape4";
-            this.lineShape4.X1 = 13;
-            this.lineShape4.X2 = 853;
-            this.lineShape4.Y1 = 381;
-            this.lineShape4.Y2 = 381;
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Nombre.DataPropertyName = "NombreCompleto";
+            this.Nombre.HeaderText = "Apellido, Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 130;
+            // 
+            // Direccion
+            // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Direccion.DataPropertyName = "Ubicacion";
+            this.Direccion.HeaderText = "Dirección";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 86;
+            // 
+            // Latitud
+            // 
+            this.Latitud.DataPropertyName = "Latitude";
+            dataGridViewCellStyle13.Format = "N4";
+            this.Latitud.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Latitud.HeaderText = "Latitud";
+            this.Latitud.Name = "Latitud";
+            this.Latitud.ReadOnly = true;
+            this.Latitud.Width = 145;
+            // 
+            // Longitud
+            // 
+            this.Longitud.DataPropertyName = "Longitude";
+            dataGridViewCellStyle14.Format = "N4";
+            this.Longitud.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Longitud.HeaderText = "Longitud";
+            this.Longitud.Name = "Longitud";
+            this.Longitud.ReadOnly = true;
+            this.Longitud.Width = 146;
+            // 
+            // DistanceMedrano
+            // 
+            this.DistanceMedrano.DataPropertyName = "DistanceMedrano";
+            dataGridViewCellStyle15.Format = ".0000 Km.";
+            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle15;
+            this.DistanceMedrano.HeaderText = "Distancia a Medrano";
+            this.DistanceMedrano.Name = "DistanceMedrano";
+            this.DistanceMedrano.ReadOnly = true;
+            this.DistanceMedrano.Width = 146;
+            // 
+            // DistanceCampus
+            // 
+            this.DistanceCampus.DataPropertyName = "DistanceCampus";
+            dataGridViewCellStyle16.Format = ".0000 Km.";
+            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle16;
+            this.DistanceCampus.HeaderText = "Distancia a Campus";
+            this.DistanceCampus.Name = "DistanceCampus";
+            this.DistanceCampus.ReadOnly = true;
+            this.DistanceCampus.Width = 146;
+            // 
+            // ctxMenuAlumnos
+            // 
+            this.ctxMenuAlumnos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxMenuAlumnos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctxMenuImportar,
+            this.ctxMenuExportar});
+            this.ctxMenuAlumnos.Name = "ctxMenuAlumnos";
+            this.ctxMenuAlumnos.Size = new System.Drawing.Size(130, 48);
+            // 
+            // ctxMenuImportar
+            // 
+            this.ctxMenuImportar.Name = "ctxMenuImportar";
+            this.ctxMenuImportar.Size = new System.Drawing.Size(152, 22);
+            this.ctxMenuImportar.Text = "Importar...";
+            this.ctxMenuImportar.Click += new System.EventHandler(this.ctxMenuImportar_Click);
+            // 
+            // ctxMenuExportar
+            // 
+            this.ctxMenuExportar.Name = "ctxMenuExportar";
+            this.ctxMenuExportar.Size = new System.Drawing.Size(152, 22);
+            this.ctxMenuExportar.Text = "Exportar...";
+            this.ctxMenuExportar.Click += new System.EventHandler(this.ctxMenuExportar_Click);
+            // 
+            // dlgOpen
+            // 
+            this.dlgOpen.Filter = "Archivo XML|*.xml";
+            this.dlgOpen.Title = "Importar Listado Alumnos";
+            // 
+            // dlgSave
+            // 
+            this.dlgSave.DefaultExt = "xml";
+            this.dlgSave.Filter = "Archivo XML|*.xml";
+            this.dlgSave.Title = "Exportar Listado Alumnos";
             // 
             // GIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 441);
+            this.Controls.Add(this.dtgAlumnos);
             this.Controls.Add(this.txtAlumnoMasLejano);
             this.Controls.Add(this.txtAlumnoCercano);
             this.Controls.Add(this.lblAlumnoLejano);
             this.Controls.Add(this.lblAlumnoCercano);
-            this.Controls.Add(this.dtgAlumnos);
             this.Controls.Add(this.txtSedeProm);
             this.Controls.Add(this.txtSedeMax);
             this.Controls.Add(this.txtSedeMinima);
@@ -410,6 +488,7 @@
             this.Text = "GIS";
             this.Load += new System.EventHandler(this.GIS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).EndInit();
+            this.ctxMenuAlumnos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,18 +518,24 @@
         private System.Windows.Forms.Label txtSedeMinima;
         private System.Windows.Forms.Label txtSedeMax;
         private System.Windows.Forms.Label txtSedeProm;
-        private System.Windows.Forms.DataGridView dtgAlumnos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ubicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DistanceCampus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DistanceMedrano;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu mnuCtxGrid;
         private System.Windows.Forms.Label txtAlumnoMasLejano;
         private System.Windows.Forms.Label txtAlumnoCercano;
         private System.Windows.Forms.Label lblAlumnoLejano;
         private System.Windows.Forms.Label lblAlumnoCercano;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dtgAlumnos;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Nombre;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Direccion;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Latitud;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Longitud;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn DistanceMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn DistanceCampus;
+        private System.Windows.Forms.OpenFileDialog dlgOpen;
+        private System.Windows.Forms.SaveFileDialog dlgSave;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuAlumnos;
+        private System.Windows.Forms.ToolStripMenuItem ctxMenuImportar;
+        private System.Windows.Forms.ToolStripMenuItem ctxMenuExportar;
 
     }
 }

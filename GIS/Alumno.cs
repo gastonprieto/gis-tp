@@ -20,11 +20,23 @@ namespace GIS
             this.Apellido = apellido;
             this.Direccion = new Coordenada(direccion);
         }
+        public Alumno()
+        {
+        }
         #endregion
         #region Properties
-        public String Nombre {get; set;}
-        public String Apellido { get; set; }
-        public Coordenada Direccion { get; set; }
+        public String Nombre 
+        {
+            get; set;
+        }
+        public String Apellido 
+        {
+            get; set; 
+        }
+        public Coordenada Direccion 
+        { 
+            get; set; 
+        }
         public Double Latitude 
         {
             get { return Direccion.Latitude.Value; }

@@ -20,6 +20,9 @@ namespace GIS
             Name = direccion;
             Address = direccion;
         }
+        public Coordenada()
+        {
+        }
 
         protected double? _latitude;
         protected double? _longitude;

@@ -28,7 +28,7 @@ namespace GoogleGeocoder
             Uri uri = GetGeocodeUri(address);
             
             string[] geocodeInfo = client.DownloadString(uri).Split(',');
-            Debug.WriteLine("Point[addres=" + address + "; latitude=" + geocodeInfo[2] + "; longitude=" + geocodeInfo[3] + "]");
+            Debug.WriteLine("Point[address=" + address + "; latitude=" + geocodeInfo[2] + "; longitude=" + geocodeInfo[3] + "]");
 
             return geocodeInfo;
         }
