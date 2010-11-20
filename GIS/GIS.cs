@@ -66,6 +66,8 @@ namespace GIS
             
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            statusInfo.Text = "Agregando Alumno...";
+
             if (String.IsNullOrEmpty(txtNombre.Text)) {
                 MessageBox.Show("Se debe ingresar el nombre del alumno");
                 return;
@@ -91,7 +93,10 @@ namespace GIS
                 }
             }
 
-            alumnosGrid.Add(bind());
+            Alumno alumno = bind();
+            alumnosGrid.Add(alumno);
+
+            statusInfo.Text = "Alumno agregado satisfactoriamente (" + alumno.NombreCompleto + ")"; 
             updateStadistics();
             resetAlumno();
         }
@@ -152,8 +157,10 @@ namespace GIS
                 String fileName = dlgOpen.FileName;
                 try
                 {
+                    statusInfo.Text = "Importando Archivo...";
                     IList<Alumno> alumnos = InterfaceXML.importFrom(fileName);
                     alumnos.ToList().ForEach((Alumno alumno) => alumnosGrid.Add(alumno));
+                    statusInfo.Text = "Archivo Importado satisfactoriamente (" + fileName + ")...";
                     updateStadistics();
                     resetAlumno();
                 }
@@ -169,8 +176,9 @@ namespace GIS
             if (dlgSave.ShowDialog() == DialogResult.OK)
             {
                 String fileName = dlgSave.FileName;
+                statusInfo.Text = "Exportando archivo...";
                 InterfaceXML.exportTo(fileName, alumnosGrid);
-
+                statusInfo.Text = "Archivo Exportado satisfactoriamente (" + fileName + ")";
             }
         }
 
@@ -178,5 +186,6 @@ namespace GIS
         {
             updateStadistics();
         }
+
     }
 }

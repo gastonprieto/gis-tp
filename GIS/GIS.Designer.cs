@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GIS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -82,9 +83,12 @@
             this.lblAlumnoCercanoCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtDistanciaPromedioMedrano = new System.Windows.Forms.TextBox();
             this.txtDistanciaPromedioCampus = new System.Windows.Forms.TextBox();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.statusInfo = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.ctxMenuAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
+            this.statusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -98,11 +102,15 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(785, 34);
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(739, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(121, 54);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "&Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -119,27 +127,27 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(81, 6);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(288, 20);
+            this.txtNombre.Size = new System.Drawing.Size(246, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtUbicacion
             // 
             this.txtUbicacion.Location = new System.Drawing.Point(81, 36);
             this.txtUbicacion.Name = "txtUbicacion";
-            this.txtUbicacion.Size = new System.Drawing.Size(688, 20);
+            this.txtUbicacion.Size = new System.Drawing.Size(637, 20);
             this.txtUbicacion.TabIndex = 3;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(481, 6);
+            this.txtApellido.Location = new System.Drawing.Point(448, 6);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(288, 20);
+            this.txtApellido.Size = new System.Drawing.Size(270, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(416, 9);
+            this.lblApellido.Location = new System.Drawing.Point(383, 9);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 6;
@@ -157,7 +165,7 @@
             this.lineShape3,
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(871, 534);
+            this.shapeContainer1.Size = new System.Drawing.Size(872, 552);
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
             // 
@@ -298,6 +306,7 @@
             // 
             // ctxMenuImportar
             // 
+            this.ctxMenuImportar.Image = ((System.Drawing.Image)(resources.GetObject("ctxMenuImportar.Image")));
             this.ctxMenuImportar.Name = "ctxMenuImportar";
             this.ctxMenuImportar.Size = new System.Drawing.Size(129, 22);
             this.ctxMenuImportar.Text = "Importar...";
@@ -305,6 +314,7 @@
             // 
             // ctxMenuExportar
             // 
+            this.ctxMenuExportar.Image = ((System.Drawing.Image)(resources.GetObject("ctxMenuExportar.Image")));
             this.ctxMenuExportar.Name = "ctxMenuExportar";
             this.ctxMenuExportar.Size = new System.Drawing.Size(129, 22);
             this.ctxMenuExportar.Text = "Exportar...";
@@ -506,11 +516,25 @@
             this.txtDistanciaPromedioCampus.Size = new System.Drawing.Size(100, 20);
             this.txtDistanciaPromedioCampus.TabIndex = 53;
             // 
+            // statusBar
+            // 
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusInfo});
+            this.statusBar.Location = new System.Drawing.Point(0, 530);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(872, 22);
+            this.statusBar.TabIndex = 54;
+            // 
+            // statusInfo
+            // 
+            this.statusInfo.Name = "statusInfo";
+            this.statusInfo.Size = new System.Drawing.Size(0, 17);
+            // 
             // GIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 534);
+            this.ClientSize = new System.Drawing.Size(872, 552);
             this.Controls.Add(this.txtDistanciaPromedioCampus);
             this.Controls.Add(this.txtDistanciaPromedioMedrano);
             this.Controls.Add(this.txtDistanciaMaximaCampus);
@@ -542,6 +566,7 @@
             this.Controls.Add(this.lblUbicacion);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.shapeContainer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -551,6 +576,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).EndInit();
             this.ctxMenuAlumnos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,6 +634,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblAlumnoCercanoCampus;
         private System.Windows.Forms.TextBox txtDistanciaPromedioMedrano;
         private System.Windows.Forms.TextBox txtDistanciaPromedioCampus;
+        private System.Windows.Forms.StatusStrip statusBar;
+        private System.Windows.Forms.ToolStripStatusLabel statusInfo;
 
     }
 }
