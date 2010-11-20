@@ -81,26 +81,26 @@ namespace GIS
             }
             return _distanciaMedrano.Value;
         }
-        public Coordenada sedeMasCercana()
+        public Alumno masCercanoA(Alumno otroAlumno, Coordenada coordenada)
         {
-            if (DistanceCampus < DistanceMedrano)
+            if (this.DistanciaA(coordenada) < otroAlumno.DistanciaA(coordenada))
             {
-                return Helpers.CAMPUS;
+                return this;
             }
             else
             {
-                return Helpers.MEDRANO;
+                return otroAlumno;
             }
         }
-        public Coordenada sedeMasLejana()
+        public Alumno masLejanoA(Alumno otroAlumno, Coordenada coordenada)
         {
-            if (DistanceCampus > DistanceMedrano)
+            if (this.DistanciaA(coordenada) > otroAlumno.DistanciaA(coordenada))
             {
-                return Helpers.CAMPUS;
+                return this;
             }
             else
             {
-                return Helpers.MEDRANO;
+                return otroAlumno;
             }
         }
         #endregion

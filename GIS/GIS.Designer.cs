@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUbicacion = new System.Windows.Forms.Label();
@@ -41,26 +41,12 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape6 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lblDistanciaMinima = new System.Windows.Forms.Label();
-            this.lblDistanciaMaxima = new System.Windows.Forms.Label();
-            this.lblDistanciaPromedio = new System.Windows.Forms.Label();
-            this.txtDistanciaMinima = new System.Windows.Forms.Label();
-            this.txtDistanciaMaxima = new System.Windows.Forms.Label();
-            this.txtDistanciaPromedio = new System.Windows.Forms.Label();
-            this.lblSedeMinima = new System.Windows.Forms.Label();
-            this.lblSedeMaxima = new System.Windows.Forms.Label();
-            this.lblSedePromedio = new System.Windows.Forms.Label();
-            this.txtSedeMinima = new System.Windows.Forms.Label();
-            this.txtSedeMax = new System.Windows.Forms.Label();
-            this.txtSedeProm = new System.Windows.Forms.Label();
-            this.txtAlumnoMasLejano = new System.Windows.Forms.Label();
-            this.txtAlumnoCercano = new System.Windows.Forms.Label();
-            this.lblAlumnoLejano = new System.Windows.Forms.Label();
-            this.lblAlumnoCercano = new System.Windows.Forms.Label();
             this.dtgAlumnos = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Nombre = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.Direccion = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
@@ -73,12 +59,32 @@
             this.ctxMenuExportar = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
-            this.pnlProgress = new System.Windows.Forms.Panel();
-            this.lblProgress = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.headerMedrano = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.headerCampus = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.kryptonSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonSeparator();
+            this.lblAlumnoCercanoMedrano = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblAlumnoLejanoMedrano = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDistanciaPromedioMedrano = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDistanciaMinimaMedrano = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDistanciaMaximaMedrano = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtAlumnoCercanoMedrano = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtDistanciaMinimaMedrano = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtDistanciaMaximaMedrano = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtAlumnoLejanoMedrano = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtDistanciaMaximaCampus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtAlumnoLejanoCampus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtDistanciaMinimaCampus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtAlumnoCercanoCampus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblDistanciaMaximaCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDistanciaMinimaCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblDistanciaPromedioCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblAlumnoLejanoCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblAlumnoCercanoCampus = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtDistanciaPromedioMedrano = new System.Windows.Forms.TextBox();
+            this.txtDistanciaPromedioCampus = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.ctxMenuAlumnos.SuspendLayout();
-            this.pnlProgress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -145,29 +151,47 @@
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape6,
+            this.lineShape5,
             this.lineShape4,
             this.lineShape3,
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(872, 441);
+            this.shapeContainer1.Size = new System.Drawing.Size(871, 534);
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape6
+            // 
+            this.lineShape6.Name = "lineShape6";
+            this.lineShape6.X1 = 442;
+            this.lineShape6.X2 = 788;
+            this.lineShape6.Y1 = 413;
+            this.lineShape6.Y2 = 413;
+            // 
+            // lineShape5
+            // 
+            this.lineShape5.Name = "lineShape5";
+            this.lineShape5.X1 = 443;
+            this.lineShape5.X2 = 785;
+            this.lineShape5.Y1 = 477;
+            this.lineShape5.Y2 = 477;
             // 
             // lineShape4
             // 
             this.lineShape4.Name = "lineShape4";
-            this.lineShape4.X1 = 13;
-            this.lineShape4.X2 = 853;
-            this.lineShape4.Y1 = 381;
-            this.lineShape4.Y2 = 381;
+            this.lineShape4.X1 = 23;
+            this.lineShape4.X2 = 365;
+            this.lineShape4.Y1 = 479;
+            this.lineShape4.Y2 = 479;
             // 
             // lineShape3
             // 
             this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 12;
-            this.lineShape3.X2 = 853;
-            this.lineShape3.Y1 = 385;
-            this.lineShape3.Y2 = 385;
+            this.lineShape3.X1 = 22;
+            this.lineShape3.X2 = 368;
+            this.lineShape3.Y1 = 415;
+            this.lineShape3.Y2 = 415;
             // 
             // lineShape2
             // 
@@ -185,164 +209,6 @@
             this.lineShape1.Y1 = 72;
             this.lineShape1.Y2 = 72;
             // 
-            // lblDistanciaMinima
-            // 
-            this.lblDistanciaMinima.AutoSize = true;
-            this.lblDistanciaMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaMinima.Location = new System.Drawing.Point(334, 316);
-            this.lblDistanciaMinima.Name = "lblDistanciaMinima";
-            this.lblDistanciaMinima.Size = new System.Drawing.Size(64, 13);
-            this.lblDistanciaMinima.TabIndex = 10;
-            this.lblDistanciaMinima.Text = "Distancia:";
-            // 
-            // lblDistanciaMaxima
-            // 
-            this.lblDistanciaMaxima.AutoSize = true;
-            this.lblDistanciaMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaMaxima.Location = new System.Drawing.Point(334, 349);
-            this.lblDistanciaMaxima.Name = "lblDistanciaMaxima";
-            this.lblDistanciaMaxima.Size = new System.Drawing.Size(64, 13);
-            this.lblDistanciaMaxima.TabIndex = 11;
-            this.lblDistanciaMaxima.Text = "Distancia:";
-            // 
-            // lblDistanciaPromedio
-            // 
-            this.lblDistanciaPromedio.AutoSize = true;
-            this.lblDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistanciaPromedio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblDistanciaPromedio.Location = new System.Drawing.Point(11, 401);
-            this.lblDistanciaPromedio.Name = "lblDistanciaPromedio";
-            this.lblDistanciaPromedio.Size = new System.Drawing.Size(169, 20);
-            this.lblDistanciaPromedio.TabIndex = 12;
-            this.lblDistanciaPromedio.Text = "Distancia Promedio:";
-            // 
-            // txtDistanciaMinima
-            // 
-            this.txtDistanciaMinima.AutoSize = true;
-            this.txtDistanciaMinima.Location = new System.Drawing.Point(404, 316);
-            this.txtDistanciaMinima.Name = "txtDistanciaMinima";
-            this.txtDistanciaMinima.Size = new System.Drawing.Size(71, 13);
-            this.txtDistanciaMinima.TabIndex = 13;
-            this.txtDistanciaMinima.Text = "Distancia Min";
-            // 
-            // txtDistanciaMaxima
-            // 
-            this.txtDistanciaMaxima.AutoSize = true;
-            this.txtDistanciaMaxima.Location = new System.Drawing.Point(404, 349);
-            this.txtDistanciaMaxima.Name = "txtDistanciaMaxima";
-            this.txtDistanciaMaxima.Size = new System.Drawing.Size(74, 13);
-            this.txtDistanciaMaxima.TabIndex = 14;
-            this.txtDistanciaMaxima.Text = "Distancia Max";
-            // 
-            // txtDistanciaPromedio
-            // 
-            this.txtDistanciaPromedio.AutoSize = true;
-            this.txtDistanciaPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistanciaPromedio.Location = new System.Drawing.Point(180, 401);
-            this.txtDistanciaPromedio.Name = "txtDistanciaPromedio";
-            this.txtDistanciaPromedio.Size = new System.Drawing.Size(146, 20);
-            this.txtDistanciaPromedio.TabIndex = 15;
-            this.txtDistanciaPromedio.Text = "Distancia Promedio";
-            // 
-            // lblSedeMinima
-            // 
-            this.lblSedeMinima.AutoSize = true;
-            this.lblSedeMinima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSedeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedeMinima.Location = new System.Drawing.Point(12, 316);
-            this.lblSedeMinima.Name = "lblSedeMinima";
-            this.lblSedeMinima.Size = new System.Drawing.Size(118, 13);
-            this.lblSedeMinima.TabIndex = 16;
-            this.lblSedeMinima.Text = "Sede Más Cercana:";
-            // 
-            // lblSedeMaxima
-            // 
-            this.lblSedeMaxima.AutoSize = true;
-            this.lblSedeMaxima.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedeMaxima.Location = new System.Drawing.Point(12, 349);
-            this.lblSedeMaxima.Name = "lblSedeMaxima";
-            this.lblSedeMaxima.Size = new System.Drawing.Size(113, 13);
-            this.lblSedeMaxima.TabIndex = 17;
-            this.lblSedeMaxima.Text = "Sede Más Alejada:";
-            // 
-            // lblSedePromedio
-            // 
-            this.lblSedePromedio.AutoSize = true;
-            this.lblSedePromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSedePromedio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblSedePromedio.Location = new System.Drawing.Point(415, 401);
-            this.lblSedePromedio.Name = "lblSedePromedio";
-            this.lblSedePromedio.Size = new System.Drawing.Size(177, 20);
-            this.lblSedePromedio.TabIndex = 18;
-            this.lblSedePromedio.Text = "Sede Recomendada:";
-            this.lblSedePromedio.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtSedeMinima
-            // 
-            this.txtSedeMinima.AutoSize = true;
-            this.txtSedeMinima.Location = new System.Drawing.Point(143, 316);
-            this.txtSedeMinima.Name = "txtSedeMinima";
-            this.txtSedeMinima.Size = new System.Drawing.Size(52, 13);
-            this.txtSedeMinima.TabIndex = 19;
-            this.txtSedeMinima.Text = "Sede Min";
-            // 
-            // txtSedeMax
-            // 
-            this.txtSedeMax.AutoSize = true;
-            this.txtSedeMax.Location = new System.Drawing.Point(143, 349);
-            this.txtSedeMax.Name = "txtSedeMax";
-            this.txtSedeMax.Size = new System.Drawing.Size(55, 13);
-            this.txtSedeMax.TabIndex = 20;
-            this.txtSedeMax.Text = "Sede Max";
-            // 
-            // txtSedeProm
-            // 
-            this.txtSedeProm.AutoSize = true;
-            this.txtSedeProm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSedeProm.Location = new System.Drawing.Point(598, 401);
-            this.txtSedeProm.Name = "txtSedeProm";
-            this.txtSedeProm.Size = new System.Drawing.Size(118, 20);
-            this.txtSedeProm.TabIndex = 21;
-            this.txtSedeProm.Text = "Sede Promedio";
-            // 
-            // txtAlumnoMasLejano
-            // 
-            this.txtAlumnoMasLejano.AutoSize = true;
-            this.txtAlumnoMasLejano.Location = new System.Drawing.Point(657, 349);
-            this.txtAlumnoMasLejano.Name = "txtAlumnoMasLejano";
-            this.txtAlumnoMasLejano.Size = new System.Drawing.Size(65, 13);
-            this.txtAlumnoMasLejano.TabIndex = 26;
-            this.txtAlumnoMasLejano.Text = "Alumno Max";
-            // 
-            // txtAlumnoCercano
-            // 
-            this.txtAlumnoCercano.AutoSize = true;
-            this.txtAlumnoCercano.Location = new System.Drawing.Point(657, 316);
-            this.txtAlumnoCercano.Name = "txtAlumnoCercano";
-            this.txtAlumnoCercano.Size = new System.Drawing.Size(62, 13);
-            this.txtAlumnoCercano.TabIndex = 25;
-            this.txtAlumnoCercano.Text = "Alumno Min";
-            // 
-            // lblAlumnoLejano
-            // 
-            this.lblAlumnoLejano.AutoSize = true;
-            this.lblAlumnoLejano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlumnoLejano.Location = new System.Drawing.Point(599, 349);
-            this.lblAlumnoLejano.Name = "lblAlumnoLejano";
-            this.lblAlumnoLejano.Size = new System.Drawing.Size(52, 13);
-            this.lblAlumnoLejano.TabIndex = 24;
-            this.lblAlumnoLejano.Text = "Alumno:";
-            // 
-            // lblAlumnoCercano
-            // 
-            this.lblAlumnoCercano.AutoSize = true;
-            this.lblAlumnoCercano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlumnoCercano.Location = new System.Drawing.Point(599, 316);
-            this.lblAlumnoCercano.Name = "lblAlumnoCercano";
-            this.lblAlumnoCercano.Size = new System.Drawing.Size(52, 13);
-            this.lblAlumnoCercano.TabIndex = 23;
-            this.lblAlumnoCercano.Text = "Alumno:";
-            // 
             // dtgAlumnos
             // 
             this.dtgAlumnos.AllowUserToAddRows = false;
@@ -356,7 +222,6 @@
             this.DistanceCampus});
             this.dtgAlumnos.ContextMenuStrip = this.ctxMenuAlumnos;
             this.dtgAlumnos.Location = new System.Drawing.Point(15, 81);
-            this.dtgAlumnos.MultiSelect = false;
             this.dtgAlumnos.Name = "dtgAlumnos";
             this.dtgAlumnos.ReadOnly = true;
             this.dtgAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -385,8 +250,8 @@
             // Latitud
             // 
             this.Latitud.DataPropertyName = "Latitude";
-            dataGridViewCellStyle5.Format = "N4";
-            this.Latitud.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N4";
+            this.Latitud.DefaultCellStyle = dataGridViewCellStyle1;
             this.Latitud.HeaderText = "Latitud";
             this.Latitud.Name = "Latitud";
             this.Latitud.ReadOnly = true;
@@ -395,8 +260,8 @@
             // Longitud
             // 
             this.Longitud.DataPropertyName = "Longitude";
-            dataGridViewCellStyle6.Format = "N4";
-            this.Longitud.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N4";
+            this.Longitud.DefaultCellStyle = dataGridViewCellStyle2;
             this.Longitud.HeaderText = "Longitud";
             this.Longitud.Name = "Longitud";
             this.Longitud.ReadOnly = true;
@@ -405,8 +270,8 @@
             // DistanceMedrano
             // 
             this.DistanceMedrano.DataPropertyName = "DistanceMedrano";
-            dataGridViewCellStyle7.Format = ".0000 Km.";
-            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = ".0000 Km.";
+            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle3;
             this.DistanceMedrano.HeaderText = "Distancia a Medrano";
             this.DistanceMedrano.Name = "DistanceMedrano";
             this.DistanceMedrano.ReadOnly = true;
@@ -415,8 +280,8 @@
             // DistanceCampus
             // 
             this.DistanceCampus.DataPropertyName = "DistanceCampus";
-            dataGridViewCellStyle8.Format = ".0000 Km.";
-            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = ".0000 Km.";
+            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle4;
             this.DistanceCampus.HeaderText = "Distancia a Campus";
             this.DistanceCampus.Name = "DistanceCampus";
             this.DistanceCampus.ReadOnly = true;
@@ -434,14 +299,14 @@
             // ctxMenuImportar
             // 
             this.ctxMenuImportar.Name = "ctxMenuImportar";
-            this.ctxMenuImportar.Size = new System.Drawing.Size(152, 22);
+            this.ctxMenuImportar.Size = new System.Drawing.Size(129, 22);
             this.ctxMenuImportar.Text = "Importar...";
             this.ctxMenuImportar.Click += new System.EventHandler(this.ctxMenuImportar_Click);
             // 
             // ctxMenuExportar
             // 
             this.ctxMenuExportar.Name = "ctxMenuExportar";
-            this.ctxMenuExportar.Size = new System.Drawing.Size(152, 22);
+            this.ctxMenuExportar.Size = new System.Drawing.Size(129, 22);
             this.ctxMenuExportar.Text = "Exportar...";
             this.ctxMenuExportar.Click += new System.EventHandler(this.ctxMenuExportar_Click);
             // 
@@ -456,56 +321,220 @@
             this.dlgSave.Filter = "Archivo XML|*.xml";
             this.dlgSave.Title = "Exportar Listado Alumnos";
             // 
-            // pnlProgress
+            // headerMedrano
             // 
-            this.pnlProgress.Controls.Add(this.progressBar);
-            this.pnlProgress.Controls.Add(this.lblProgress);
-            this.pnlProgress.Location = new System.Drawing.Point(274, 131);
-            this.pnlProgress.Name = "pnlProgress";
-            this.pnlProgress.Size = new System.Drawing.Size(302, 89);
-            this.pnlProgress.TabIndex = 28;
-            this.pnlProgress.Visible = false;
+            this.headerMedrano.Location = new System.Drawing.Point(15, 315);
+            this.headerMedrano.Name = "headerMedrano";
+            this.headerMedrano.Size = new System.Drawing.Size(196, 31);
+            this.headerMedrano.TabIndex = 28;
+            this.headerMedrano.Values.Description = "";
+            this.headerMedrano.Values.Heading = "Estadísticas Medrano";
+            this.headerMedrano.Values.Image = null;
             // 
-            // lblProgress
+            // headerCampus
             // 
-            this.lblProgress.AutoSize = true;
-            this.lblProgress.Location = new System.Drawing.Point(17, 17);
-            this.lblProgress.Name = "lblProgress";
-            this.lblProgress.Size = new System.Drawing.Size(73, 13);
-            this.lblProgress.TabIndex = 0;
-            this.lblProgress.Text = "Procesando...";
+            this.headerCampus.Location = new System.Drawing.Point(439, 315);
+            this.headerCampus.Name = "headerCampus";
+            this.headerCampus.Size = new System.Drawing.Size(187, 31);
+            this.headerCampus.TabIndex = 29;
+            this.headerCampus.Values.Description = "";
+            this.headerCampus.Values.Heading = "Estadísticas Campus";
+            this.headerCampus.Values.Image = null;
             // 
-            // progressBar
+            // kryptonSeparator1
             // 
-            this.progressBar.Location = new System.Drawing.Point(20, 45);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(267, 23);
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar.TabIndex = 1;
+            this.kryptonSeparator1.Location = new System.Drawing.Point(386, 315);
+            this.kryptonSeparator1.Name = "kryptonSeparator1";
+            this.kryptonSeparator1.Size = new System.Drawing.Size(27, 207);
+            this.kryptonSeparator1.TabIndex = 30;
+            // 
+            // lblAlumnoCercanoMedrano
+            // 
+            this.lblAlumnoCercanoMedrano.Location = new System.Drawing.Point(15, 362);
+            this.lblAlumnoCercanoMedrano.Name = "lblAlumnoCercanoMedrano";
+            this.lblAlumnoCercanoMedrano.Size = new System.Drawing.Size(104, 20);
+            this.lblAlumnoCercanoMedrano.TabIndex = 31;
+            this.lblAlumnoCercanoMedrano.Values.Text = "Alumno Cercano:";
+            // 
+            // lblAlumnoLejanoMedrano
+            // 
+            this.lblAlumnoLejanoMedrano.Location = new System.Drawing.Point(15, 426);
+            this.lblAlumnoLejanoMedrano.Name = "lblAlumnoLejanoMedrano";
+            this.lblAlumnoLejanoMedrano.Size = new System.Drawing.Size(95, 20);
+            this.lblAlumnoLejanoMedrano.TabIndex = 32;
+            this.lblAlumnoLejanoMedrano.Values.Text = "Alumno Lejano:";
+            // 
+            // lblDistanciaPromedioMedrano
+            // 
+            this.lblDistanciaPromedioMedrano.Location = new System.Drawing.Point(15, 490);
+            this.lblDistanciaPromedioMedrano.Name = "lblDistanciaPromedioMedrano";
+            this.lblDistanciaPromedioMedrano.Size = new System.Drawing.Size(119, 20);
+            this.lblDistanciaPromedioMedrano.TabIndex = 33;
+            this.lblDistanciaPromedioMedrano.Values.Text = "Distancia Promedio:";
+            // 
+            // lblDistanciaMinimaMedrano
+            // 
+            this.lblDistanciaMinimaMedrano.Location = new System.Drawing.Point(15, 388);
+            this.lblDistanciaMinimaMedrano.Name = "lblDistanciaMinimaMedrano";
+            this.lblDistanciaMinimaMedrano.Size = new System.Drawing.Size(107, 20);
+            this.lblDistanciaMinimaMedrano.TabIndex = 34;
+            this.lblDistanciaMinimaMedrano.Values.Text = "Distancia Mínima:";
+            // 
+            // lblDistanciaMaximaMedrano
+            // 
+            this.lblDistanciaMaximaMedrano.Location = new System.Drawing.Point(15, 452);
+            this.lblDistanciaMaximaMedrano.Name = "lblDistanciaMaximaMedrano";
+            this.lblDistanciaMaximaMedrano.Size = new System.Drawing.Size(109, 20);
+            this.lblDistanciaMaximaMedrano.TabIndex = 35;
+            this.lblDistanciaMaximaMedrano.Values.Text = "Distancia Máxima:";
+            // 
+            // txtAlumnoCercanoMedrano
+            // 
+            this.txtAlumnoCercanoMedrano.Location = new System.Drawing.Point(138, 362);
+            this.txtAlumnoCercanoMedrano.Name = "txtAlumnoCercanoMedrano";
+            this.txtAlumnoCercanoMedrano.ReadOnly = true;
+            this.txtAlumnoCercanoMedrano.Size = new System.Drawing.Size(231, 20);
+            this.txtAlumnoCercanoMedrano.TabIndex = 36;
+            // 
+            // txtDistanciaMinimaMedrano
+            // 
+            this.txtDistanciaMinimaMedrano.Location = new System.Drawing.Point(138, 388);
+            this.txtDistanciaMinimaMedrano.Name = "txtDistanciaMinimaMedrano";
+            this.txtDistanciaMinimaMedrano.ReadOnly = true;
+            this.txtDistanciaMinimaMedrano.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaMinimaMedrano.TabIndex = 37;
+            // 
+            // txtDistanciaMaximaMedrano
+            // 
+            this.txtDistanciaMaximaMedrano.Location = new System.Drawing.Point(138, 452);
+            this.txtDistanciaMaximaMedrano.Name = "txtDistanciaMaximaMedrano";
+            this.txtDistanciaMaximaMedrano.ReadOnly = true;
+            this.txtDistanciaMaximaMedrano.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaMaximaMedrano.TabIndex = 39;
+            // 
+            // txtAlumnoLejanoMedrano
+            // 
+            this.txtAlumnoLejanoMedrano.Location = new System.Drawing.Point(138, 426);
+            this.txtAlumnoLejanoMedrano.Name = "txtAlumnoLejanoMedrano";
+            this.txtAlumnoLejanoMedrano.ReadOnly = true;
+            this.txtAlumnoLejanoMedrano.Size = new System.Drawing.Size(231, 20);
+            this.txtAlumnoLejanoMedrano.TabIndex = 38;
+            // 
+            // txtDistanciaMaximaCampus
+            // 
+            this.txtDistanciaMaximaCampus.Location = new System.Drawing.Point(566, 452);
+            this.txtDistanciaMaximaCampus.Name = "txtDistanciaMaximaCampus";
+            this.txtDistanciaMaximaCampus.ReadOnly = true;
+            this.txtDistanciaMaximaCampus.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaMaximaCampus.TabIndex = 50;
+            // 
+            // txtAlumnoLejanoCampus
+            // 
+            this.txtAlumnoLejanoCampus.Location = new System.Drawing.Point(566, 426);
+            this.txtAlumnoLejanoCampus.Name = "txtAlumnoLejanoCampus";
+            this.txtAlumnoLejanoCampus.ReadOnly = true;
+            this.txtAlumnoLejanoCampus.Size = new System.Drawing.Size(231, 20);
+            this.txtAlumnoLejanoCampus.TabIndex = 49;
+            // 
+            // txtDistanciaMinimaCampus
+            // 
+            this.txtDistanciaMinimaCampus.Location = new System.Drawing.Point(566, 388);
+            this.txtDistanciaMinimaCampus.Name = "txtDistanciaMinimaCampus";
+            this.txtDistanciaMinimaCampus.ReadOnly = true;
+            this.txtDistanciaMinimaCampus.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaMinimaCampus.TabIndex = 48;
+            // 
+            // txtAlumnoCercanoCampus
+            // 
+            this.txtAlumnoCercanoCampus.Location = new System.Drawing.Point(566, 362);
+            this.txtAlumnoCercanoCampus.Name = "txtAlumnoCercanoCampus";
+            this.txtAlumnoCercanoCampus.ReadOnly = true;
+            this.txtAlumnoCercanoCampus.Size = new System.Drawing.Size(231, 20);
+            this.txtAlumnoCercanoCampus.TabIndex = 47;
+            // 
+            // lblDistanciaMaximaCampus
+            // 
+            this.lblDistanciaMaximaCampus.Location = new System.Drawing.Point(443, 452);
+            this.lblDistanciaMaximaCampus.Name = "lblDistanciaMaximaCampus";
+            this.lblDistanciaMaximaCampus.Size = new System.Drawing.Size(109, 20);
+            this.lblDistanciaMaximaCampus.TabIndex = 46;
+            this.lblDistanciaMaximaCampus.Values.Text = "Distancia Máxima:";
+            // 
+            // lblDistanciaMinimaCampus
+            // 
+            this.lblDistanciaMinimaCampus.Location = new System.Drawing.Point(443, 388);
+            this.lblDistanciaMinimaCampus.Name = "lblDistanciaMinimaCampus";
+            this.lblDistanciaMinimaCampus.Size = new System.Drawing.Size(107, 20);
+            this.lblDistanciaMinimaCampus.TabIndex = 45;
+            this.lblDistanciaMinimaCampus.Values.Text = "Distancia Mínima:";
+            // 
+            // lblDistanciaPromedioCampus
+            // 
+            this.lblDistanciaPromedioCampus.Location = new System.Drawing.Point(443, 490);
+            this.lblDistanciaPromedioCampus.Name = "lblDistanciaPromedioCampus";
+            this.lblDistanciaPromedioCampus.Size = new System.Drawing.Size(119, 20);
+            this.lblDistanciaPromedioCampus.TabIndex = 44;
+            this.lblDistanciaPromedioCampus.Values.Text = "Distancia Promedio:";
+            // 
+            // lblAlumnoLejanoCampus
+            // 
+            this.lblAlumnoLejanoCampus.Location = new System.Drawing.Point(443, 426);
+            this.lblAlumnoLejanoCampus.Name = "lblAlumnoLejanoCampus";
+            this.lblAlumnoLejanoCampus.Size = new System.Drawing.Size(95, 20);
+            this.lblAlumnoLejanoCampus.TabIndex = 43;
+            this.lblAlumnoLejanoCampus.Values.Text = "Alumno Lejano:";
+            // 
+            // lblAlumnoCercanoCampus
+            // 
+            this.lblAlumnoCercanoCampus.Location = new System.Drawing.Point(443, 362);
+            this.lblAlumnoCercanoCampus.Name = "lblAlumnoCercanoCampus";
+            this.lblAlumnoCercanoCampus.Size = new System.Drawing.Size(104, 20);
+            this.lblAlumnoCercanoCampus.TabIndex = 42;
+            this.lblAlumnoCercanoCampus.Values.Text = "Alumno Cercano:";
+            // 
+            // txtDistanciaPromedioMedrano
+            // 
+            this.txtDistanciaPromedioMedrano.Location = new System.Drawing.Point(140, 490);
+            this.txtDistanciaPromedioMedrano.Name = "txtDistanciaPromedioMedrano";
+            this.txtDistanciaPromedioMedrano.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaPromedioMedrano.TabIndex = 52;
+            // 
+            // txtDistanciaPromedioCampus
+            // 
+            this.txtDistanciaPromedioCampus.Location = new System.Drawing.Point(566, 490);
+            this.txtDistanciaPromedioCampus.Name = "txtDistanciaPromedioCampus";
+            this.txtDistanciaPromedioCampus.Size = new System.Drawing.Size(100, 20);
+            this.txtDistanciaPromedioCampus.TabIndex = 53;
             // 
             // GIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 441);
-            this.Controls.Add(this.pnlProgress);
+            this.ClientSize = new System.Drawing.Size(871, 534);
+            this.Controls.Add(this.txtDistanciaPromedioCampus);
+            this.Controls.Add(this.txtDistanciaPromedioMedrano);
+            this.Controls.Add(this.txtDistanciaMaximaCampus);
+            this.Controls.Add(this.txtAlumnoLejanoCampus);
+            this.Controls.Add(this.txtDistanciaMinimaCampus);
+            this.Controls.Add(this.txtAlumnoCercanoCampus);
+            this.Controls.Add(this.lblDistanciaMaximaCampus);
+            this.Controls.Add(this.lblDistanciaMinimaCampus);
+            this.Controls.Add(this.lblDistanciaPromedioCampus);
+            this.Controls.Add(this.lblAlumnoLejanoCampus);
+            this.Controls.Add(this.lblAlumnoCercanoCampus);
+            this.Controls.Add(this.txtDistanciaMaximaMedrano);
+            this.Controls.Add(this.txtAlumnoLejanoMedrano);
+            this.Controls.Add(this.txtDistanciaMinimaMedrano);
+            this.Controls.Add(this.txtAlumnoCercanoMedrano);
+            this.Controls.Add(this.lblDistanciaMaximaMedrano);
+            this.Controls.Add(this.lblDistanciaMinimaMedrano);
+            this.Controls.Add(this.lblDistanciaPromedioMedrano);
+            this.Controls.Add(this.lblAlumnoLejanoMedrano);
+            this.Controls.Add(this.lblAlumnoCercanoMedrano);
+            this.Controls.Add(this.kryptonSeparator1);
+            this.Controls.Add(this.headerCampus);
+            this.Controls.Add(this.headerMedrano);
             this.Controls.Add(this.dtgAlumnos);
-            this.Controls.Add(this.txtAlumnoMasLejano);
-            this.Controls.Add(this.txtAlumnoCercano);
-            this.Controls.Add(this.lblAlumnoLejano);
-            this.Controls.Add(this.lblAlumnoCercano);
-            this.Controls.Add(this.txtSedeProm);
-            this.Controls.Add(this.txtSedeMax);
-            this.Controls.Add(this.txtSedeMinima);
-            this.Controls.Add(this.lblSedePromedio);
-            this.Controls.Add(this.lblSedeMaxima);
-            this.Controls.Add(this.lblSedeMinima);
-            this.Controls.Add(this.txtDistanciaPromedio);
-            this.Controls.Add(this.txtDistanciaMaxima);
-            this.Controls.Add(this.txtDistanciaMinima);
-            this.Controls.Add(this.lblDistanciaPromedio);
-            this.Controls.Add(this.lblDistanciaMaxima);
-            this.Controls.Add(this.lblDistanciaMinima);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.txtUbicacion);
@@ -521,8 +550,7 @@
             this.Load += new System.EventHandler(this.GIS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).EndInit();
             this.ctxMenuAlumnos.ResumeLayout(false);
-            this.pnlProgress.ResumeLayout(false);
-            this.pnlProgress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,24 +568,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        private System.Windows.Forms.Label lblDistanciaMinima;
-        private System.Windows.Forms.Label lblDistanciaMaxima;
-        private System.Windows.Forms.Label lblDistanciaPromedio;
-        private System.Windows.Forms.Label txtDistanciaMinima;
-        private System.Windows.Forms.Label txtDistanciaMaxima;
-        private System.Windows.Forms.Label txtDistanciaPromedio;
-        private System.Windows.Forms.Label lblSedeMinima;
-        private System.Windows.Forms.Label lblSedeMaxima;
-        private System.Windows.Forms.Label lblSedePromedio;
-        private System.Windows.Forms.Label txtSedeMinima;
-        private System.Windows.Forms.Label txtSedeMax;
-        private System.Windows.Forms.Label txtSedeProm;
-        private System.Windows.Forms.Label txtAlumnoMasLejano;
-        private System.Windows.Forms.Label txtAlumnoCercano;
-        private System.Windows.Forms.Label lblAlumnoLejano;
-        private System.Windows.Forms.Label lblAlumnoCercano;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dtgAlumnos;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Nombre;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Direccion;
@@ -570,9 +580,33 @@
         private System.Windows.Forms.ContextMenuStrip ctxMenuAlumnos;
         private System.Windows.Forms.ToolStripMenuItem ctxMenuImportar;
         private System.Windows.Forms.ToolStripMenuItem ctxMenuExportar;
-        private System.Windows.Forms.Panel pnlProgress;
-        private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label lblProgress;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader headerMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader headerCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblAlumnoCercanoMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblAlumnoLejanoMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaPromedioMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaMinimaMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaMaximaMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAlumnoCercanoMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDistanciaMinimaMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDistanciaMaximaMedrano;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAlumnoLejanoMedrano;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape6;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDistanciaMaximaCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAlumnoLejanoCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDistanciaMinimaCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAlumnoCercanoCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaMaximaCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaMinimaCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDistanciaPromedioCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblAlumnoLejanoCampus;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblAlumnoCercanoCampus;
+        private System.Windows.Forms.TextBox txtDistanciaPromedioMedrano;
+        private System.Windows.Forms.TextBox txtDistanciaPromedioCampus;
 
     }
 }

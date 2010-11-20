@@ -14,6 +14,8 @@ namespace GIS
     public partial class GIS : Form
     {
 
+        private BindingList<Alumno> alumnosGrid = new BindingList<Alumno>();
+
         public GIS()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace GIS
         {
             resetTotals();
             dtgAlumnos.AutoGenerateColumns = false;
-            dtgAlumnos.DataSource = new BindingList<Alumno>();
+            dtgAlumnos.DataSource = alumnosGrid;
         }
 
         private void resetAlumno() {
@@ -36,16 +38,26 @@ namespace GIS
 
         private void resetTotals()
         {
-            txtAlumnoCercano.Text = String.Empty;
-            txtAlumnoMasLejano.Text = String.Empty;
 
-            txtDistanciaMaxima.Text = String.Empty;
-            txtDistanciaMinima.Text = String.Empty;
-            txtDistanciaPromedio.Text = String.Empty;
+            // MEDRANO
+            txtAlumnoCercanoMedrano.Text = "";
+            txtDistanciaMinimaMedrano.Text = "";
+            
+            txtAlumnoLejanoMedrano.Text = "";
+            txtDistanciaMaximaMedrano.Text = "";
 
-            txtSedeMax.Text = String.Empty;
-            txtSedeMinima.Text = String.Empty;
-            txtSedeProm.Text = String.Empty;
+            txtDistanciaPromedioMedrano.Text = "";
+            txtDistanciaPromedioMedrano.BackColor = Color.White;
+
+            // CAMPUS
+            txtAlumnoCercanoCampus.Text = "";
+            txtDistanciaMinimaCampus.Text = "";
+
+            txtAlumnoLejanoCampus.Text = "";
+            txtDistanciaMaximaCampus.Text = "";
+
+            txtDistanciaPromedioCampus.Text = "";
+            txtDistanciaPromedioCampus.BackColor = Color.White;
         }
 
         private Alumno bind() {
@@ -65,49 +77,58 @@ namespace GIS
             }
             if (String.IsNullOrEmpty(txtUbicacion.Text))
             {
-                MessageBox.Show("Se debe ingresar el nombre del alumno");
+                MessageBox.Show("Se debe ingresar la direccion del alumno");
                 return;
             }
-            BindingList<Alumno> alumnos = (BindingList<Alumno>)dtgAlumnos.DataSource;
-            alumnos.Add(bind());
-            dtgAlumnos.DataSource = alumnos;
-            updateStadistics(alumnos);
+            if (!Geocode.isUniqueAddress(txtUbicacion.Text)) {
+                BindingList<String> direcciones = Geocode.getSimilars(txtUbicacion.Text);
+                SelectAddress formAddress = new SelectAddress();
+                formAddress.loadAddress(direcciones);
+                formAddress.ShowDialog();
+                if (String.IsNullOrEmpty(formAddress.DireccionSelected) || formAddress.DireccionSelected.Equals(txtUbicacion.Text)){
+                    MessageBox.Show("Se debe refinar la dirección");
+                    return; 
+                }
+            }
+
+            alumnosGrid.Add(bind());
+            updateStadistics();
             resetAlumno();
         }
 
-        private void updateStadistics(BindingList<Alumno> alumnos)
+        private void updateStadistics()
         {
-            if (alumnos.Count > 0)
+            if (alumnosGrid.Count > 0)
             {
-                // Actualizo los datos del alumno que tiene más cerca una sede
-                Alumno elAlumnoMasCercano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasCercano(alumnoLejano, alumno));
-                txtAlumnoCercano.Text = elAlumnoMasCercano.NombreCompleto;
-                txtDistanciaMinima.Text = String.Format("{0:0.0000}", elAlumnoMasCercano.DistanciaA(elAlumnoMasCercano.sedeMasCercana())) + " Km.";
-                txtSedeMinima.Text = elAlumnoMasCercano.sedeMasCercana().Name;
+                // MEDRANO
+                Alumno alumnoCercanoMedrano = alumnosGrid.Aggregate(alumnosGrid[0], (Alumno alumno, Alumno otroAlumno) => alumno.masCercanoA(otroAlumno, Helpers.MEDRANO));
+                Alumno alumnoLejanoMedrano = alumnosGrid.Aggregate(alumnosGrid[0], (Alumno alumno, Alumno otroAlumno) => alumno.masLejanoA(otroAlumno, Helpers.MEDRANO));
+                Double promedioMedrano = alumnosGrid.Sum((Alumno alumno) => alumno.DistanceMedrano) / alumnosGrid.Count;
 
-                // Actualizo los datos del alumno que tiene maás lejos una sede
-                Alumno elAlumnoMasLejano = alumnos.Aggregate(alumnos[0], (Alumno alumnoLejano, Alumno alumno) => alumnoMasLejano(alumnoLejano, alumno));
-                txtAlumnoMasLejano.Text = elAlumnoMasLejano.NombreCompleto;
-                txtDistanciaMaxima.Text = String.Format("{0:0.0000}", elAlumnoMasLejano.DistanciaA(elAlumnoMasLejano.sedeMasLejana())) + " Km.";
-                txtSedeMax.Text = elAlumnoMasLejano.sedeMasLejana().Name;
+                txtAlumnoCercanoMedrano.Text = alumnoCercanoMedrano.NombreCompleto;
+                txtDistanciaMinimaMedrano.Text = alumnoCercanoMedrano.DistanceMedrano.ToString(".0000 Km.");
+                txtAlumnoLejanoMedrano.Text = alumnoLejanoMedrano.NombreCompleto;
+                txtDistanciaMaximaMedrano.Text = alumnoLejanoMedrano.DistanceMedrano.ToString(".0000 Km.");
+                txtDistanciaPromedioMedrano.Text = promedioMedrano.ToString(".0000 Km.");
 
-                // Actualizo los datos de la sede q mejor se ajusta
-                Double latitudeProm = alumnos.Sum<Alumno>((Alumno alumno) => alumno.Latitude) / alumnos.Count;
-                Double longitudeProm = alumnos.Sum<Alumno>((Alumno alumno) => alumno.Longitude) / alumnos.Count;
-                Coordenada coordenada = new Coordenada("Coordenada Promedio", "");
-                coordenada.Latitude = latitudeProm;
-                coordenada.Longitude = longitudeProm;
-                double distanciaCampus = coordenada.Distance(Helpers.CAMPUS);
-                double distanciaMedrano = coordenada.Distance(Helpers.MEDRANO);
-                if (distanciaCampus < distanciaMedrano)
-                {
-                    txtDistanciaPromedio.Text = String.Format("{0:0.0000}", distanciaCampus) + " Km.";
-                    txtSedeProm.Text = Helpers.CAMPUS.Name;
-                }
-                else
-                {
-                    txtDistanciaPromedio.Text = String.Format("{0:0.0000}", distanciaMedrano) + " Km.";
-                    txtSedeProm.Text = Helpers.MEDRANO.Name;
+                // CAMPUS
+                Alumno alumnoCercanoCampus = alumnosGrid.Aggregate(alumnosGrid[0], (Alumno alumno, Alumno otroAlumno) => alumno.masCercanoA(otroAlumno, Helpers.CAMPUS));
+                Alumno alumnoLejanoCampus = alumnosGrid.Aggregate(alumnosGrid[0], (Alumno alumno, Alumno otroAlumno) => alumno.masLejanoA(otroAlumno, Helpers.CAMPUS));
+                Double promedioCampus = alumnosGrid.Sum((Alumno alumno) => alumno.DistanceCampus) / alumnosGrid.Count;
+
+                txtAlumnoCercanoCampus.Text = alumnoCercanoCampus.NombreCompleto;
+                txtDistanciaMinimaCampus.Text = alumnoCercanoCampus.DistanceCampus.ToString(".0000 Km.");
+                txtAlumnoLejanoCampus.Text = alumnoLejanoCampus.NombreCompleto;
+                txtDistanciaMaximaCampus.Text = alumnoLejanoCampus.DistanceCampus.ToString(".0000 Km.");
+                txtDistanciaPromedioCampus.Text = promedioCampus.ToString(".0000 Km.");
+
+
+                if (promedioMedrano < promedioCampus){
+                    setHighColor(txtDistanciaPromedioMedrano);
+                    setNormalColor(txtDistanciaPromedioCampus);
+                }else{
+                    setHighColor(txtDistanciaPromedioCampus);
+                    setNormalColor(txtDistanciaPromedioMedrano);
                 }
             }
             else {
@@ -115,30 +136,16 @@ namespace GIS
             }
         }
 
-        private Alumno alumnoMasLejano(Alumno alumnoLejano, Alumno alumno)
-        {
-            if (alumnoLejano.DistanciaA(alumnoLejano.sedeMasLejana()) > alumno.DistanciaA(alumno.sedeMasLejana()))
-            {
-                return alumnoLejano;
-            }
-            else 
-            {
-                return alumno;
-            }
+        protected void setNormalColor(TextBox txtbox) {
+            txtbox.BackColor = Color.Blue;
+            txtbox.ForeColor = Color.White;
         }
 
-        private Alumno alumnoMasCercano(Alumno alumnoCercano, Alumno alumno)
+        protected void setHighColor(TextBox txtbox)
         {
-            if (alumnoCercano.DistanciaA(alumnoCercano.sedeMasCercana()) < alumno.DistanciaA(alumno.sedeMasCercana()))
-            {
-                return alumnoCercano;
-            }
-            else
-            {
-                return alumno;
-            }
+            txtbox.BackColor = Color.White;
+            txtbox.ForeColor = Color.Black;
         }
-
         private void ctxMenuImportar_Click(object sender, EventArgs e)
         {
             if (dlgOpen.ShowDialog() == DialogResult.OK) {
@@ -146,10 +153,8 @@ namespace GIS
                 try
                 {
                     IList<Alumno> alumnos = InterfaceXML.importFrom(fileName);
-                    BindingList<Alumno> alumnosDS = (BindingList<Alumno>)dtgAlumnos.DataSource;
-                    alumnos.ToList().ForEach((Alumno alumno) => alumnosDS.Add(alumno));
-                    dtgAlumnos.DataSource = alumnosDS;
-                    updateStadistics(alumnosDS);
+                    alumnos.ToList().ForEach((Alumno alumno) => alumnosGrid.Add(alumno));
+                    updateStadistics();
                     resetAlumno();
                 }
                 catch (Exception ex) 
@@ -164,17 +169,14 @@ namespace GIS
             if (dlgSave.ShowDialog() == DialogResult.OK)
             {
                 String fileName = dlgSave.FileName;
-                BindingList<Alumno> alumnosDS = (BindingList<Alumno>)dtgAlumnos.DataSource;
-                InterfaceXML.exportTo(fileName, alumnosDS);
+                InterfaceXML.exportTo(fileName, alumnosGrid);
 
             }
         }
 
         private void dtgAlumnos_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            BindingList<Alumno> alumnos = (BindingList<Alumno>)dtgAlumnos.DataSource;
-            updateStadistics(alumnos);
+            updateStadistics();
         }
-        
     }
 }

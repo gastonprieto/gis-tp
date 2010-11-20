@@ -62,9 +62,9 @@ namespace GIS
 
         private void initializeLatitudeAndLongitude()
         {
-            String[] geoCodeInfo = Geocode.geoCodeInfo(Address);
-            _latitude = Convert.ToDouble(geoCodeInfo[2], new CultureInfo("en-US"));
-            _longitude = Convert.ToDouble(geoCodeInfo[3], new CultureInfo("en-US"));
+            Point point = Geocode.getPoint(Address);
+            _latitude = point.Latitude;
+            _longitude = point.Longitude;
         }
         
         protected double ToRadian(double? angle)
