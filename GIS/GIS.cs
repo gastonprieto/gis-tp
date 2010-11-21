@@ -91,6 +91,7 @@ namespace GIS
                     MessageBox.Show("Se debe refinar la dirección");
                     return; 
                 }
+                txtUbicacion.Text = formAddress.DireccionSelected;
             }
 
             Alumno alumno = bind();

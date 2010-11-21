@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIS", "GIS\GIS.csproj", "{901379FD-2773-46EF-AF07-46C61BFB0E01}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GIS_Setup", "GIS_Setup\GIS_Setup.vdproj", "{A9B14F95-AF1A-4A00-B10F-894F2BE46B56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{901379FD-2773-46EF-AF07-46C61BFB0E01}.Debug|x86.Build.0 = Debug|x86
 		{901379FD-2773-46EF-AF07-46C61BFB0E01}.Release|x86.ActiveCfg = Release|x86
 		{901379FD-2773-46EF-AF07-46C61BFB0E01}.Release|x86.Build.0 = Release|x86
+		{A9B14F95-AF1A-4A00-B10F-894F2BE46B56}.Debug|x86.ActiveCfg = Debug
+		{A9B14F95-AF1A-4A00-B10F-894F2BE46B56}.Debug|x86.Build.0 = Debug
+		{A9B14F95-AF1A-4A00-B10F-894F2BE46B56}.Release|x86.ActiveCfg = Release
+		{A9B14F95-AF1A-4A00-B10F-894F2BE46B56}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

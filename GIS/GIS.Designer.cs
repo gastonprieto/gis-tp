@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GIS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUbicacion = new System.Windows.Forms.Label();
@@ -258,8 +258,8 @@
             // Latitud
             // 
             this.Latitud.DataPropertyName = "Latitude";
-            dataGridViewCellStyle1.Format = "N4";
-            this.Latitud.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N4";
+            this.Latitud.DefaultCellStyle = dataGridViewCellStyle5;
             this.Latitud.HeaderText = "Latitud";
             this.Latitud.Name = "Latitud";
             this.Latitud.ReadOnly = true;
@@ -268,8 +268,8 @@
             // Longitud
             // 
             this.Longitud.DataPropertyName = "Longitude";
-            dataGridViewCellStyle2.Format = "N4";
-            this.Longitud.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N4";
+            this.Longitud.DefaultCellStyle = dataGridViewCellStyle6;
             this.Longitud.HeaderText = "Longitud";
             this.Longitud.Name = "Longitud";
             this.Longitud.ReadOnly = true;
@@ -278,8 +278,8 @@
             // DistanceMedrano
             // 
             this.DistanceMedrano.DataPropertyName = "DistanceMedrano";
-            dataGridViewCellStyle3.Format = ".0000 Km.";
-            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = ".0000 Km.";
+            this.DistanceMedrano.DefaultCellStyle = dataGridViewCellStyle7;
             this.DistanceMedrano.HeaderText = "Distancia a Medrano";
             this.DistanceMedrano.Name = "DistanceMedrano";
             this.DistanceMedrano.ReadOnly = true;
@@ -288,8 +288,8 @@
             // DistanceCampus
             // 
             this.DistanceCampus.DataPropertyName = "DistanceCampus";
-            dataGridViewCellStyle4.Format = ".0000 Km.";
-            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = ".0000 Km.";
+            this.DistanceCampus.DefaultCellStyle = dataGridViewCellStyle8;
             this.DistanceCampus.HeaderText = "Distancia a Campus";
             this.DistanceCampus.Name = "DistanceCampus";
             this.DistanceCampus.ReadOnly = true;
@@ -568,6 +568,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.shapeContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GIS";
